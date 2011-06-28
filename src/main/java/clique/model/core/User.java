@@ -9,10 +9,10 @@ import java.sql.*;
 
 import clique.model.util.*;
 
-
 @Entity
 @Table(name = "Users")
 @SequenceGenerator(name = "seqId", sequenceName = "seqUserId")
+@PrimaryKeyJoinColumn(name = "personId")
 
 @NamedQueries({
 
@@ -23,47 +23,28 @@ import clique.model.util.*;
 
 })
 
-public class User implements Serializable { 
+public class User extends Person { 
 
-    @Id
-    @Column(name = "userId", nullable = false, unique = true)
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqId")
-    private Integer id;
-
-    @Column
-    private String firstName;
-
-    @Column
-    private String surname;
-    
     @Column(unique = true, nullable = false)
     private String email;
     
     @Column(nullable = false)
     private String password;
-    
-    @Column
-    private Boolean admin;
 
-    private static EntityManagerFactory userManagers;
+    @Column
+    private String address;
+
+    @Column
+    private Boolean facebook;
+
+
+    private static org.hibernate.Session userManager;
 
     static {
-        userManager = Persistence.createEntityManagerFactory("UserManager");
+        userManager = HibernateUtil.openSession();
     }
 
     public User() { }
-
-    
-    public Integer getId() { return this.id; }
-    private void setId(Integer id) { this.id = id; }
-
-
-    public String getFirstName() { return this.firstName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
-
-
-    public String getSurname() { return this.surname; }
-    public void setSurname(String surname) { this.surname = surname; }
 
 
     public String getEmail() { return this.email; }
@@ -87,24 +68,125 @@ public class User implements Serializable {
 
     }
 
+    public String getAddress() { return this.address; }
+    public void setAddress(String address) { this.address = address; }
+    
+    public Boolean getFacebook() { return this.facebook; }
+    public void setFacebook(Boolean facebook) { this.facebook = facebook; }
 
-    public Boolean isAdmin() { return this.admin; }
-    public void setAdmin(Boolean admin) { this.admin = admin; }
-
-    public void persist() {
+    public void save() {
   
-        EntityManager userManager = userManagers.createEntityManager();
+        userManager.beginTransaction();
 
-        userManager.getTransaction().begin();
-
-        userManager.persist(this);
+        userManager.save(this);
 
         userManager.getTransaction().commit();
   
     }
 
     public void merge() {
+ 
+        userManager.beginTransaction();
+
+        userManager.merge(this);
+
+        userManager.getTransaction().commit();
     
+    }
+
+
+    /**
+      * Retrieve an user from database, checking its email and password.
+      *
+      * @param email    User's mail string.
+      * @param password User's password string.
+      * @return User corresponding to given email and password.
+      */
+    public static User findByEmailPassword(String email, String password) {
+
+        String hashedPassword = null;
+
+        try {
+
+            // Get a message digestor implementing the SHA-1 algorithm 
+            MessageDigest sha = MessageDigest.getInstance("SHA");
+
+            // Make a hash of password and store it as a String
+            hashedPassword = new String(sha.digest(password.getBytes()), "UTF-8");
+
+        } catch (Exception exception) {
+            // Ignore exception as they will never happen
+        }
+
+        // Get database connection
+        userManager.beginTransaction();
+
+        // Load query as specified in annotations by its name
+        org.hibernate.Query query = userManager.getNamedQuery("findByEmailPassword");
+
+        // Prepare query with parameters
+        query.setParameter("email", email);
+        query.setParameter("password", hashedPassword);
+
+        // Execute query returning a single result: the user we are looking for
+        User user = (User) query.uniqueResult();
+        
+        // Commit transaction
+        userManager.getTransaction().commit();
+        
+        return user;
+    }
+
+
+    private static void unitTest1() {
+    
+        User user = new User();
+        user.setName("Name");
+        user.setPassword("password");
+        user.setEmail("student@usp.com");
+        user.save();
+    
+    }
+
+    private static void unitTest2() {
+    
+        User user = new User();
+        user.setName("Name");
+        user.setPassword("password");
+        user.setEmail("student@usp.com");
+        user.save();
+
+        user.setName("NewName");
+
+        user.merge();
+
+    }
+
+    private static void unitTest3() {
+    
+        User user1 = new User();
+        user1.setName("Name");
+        user1.setPassword("password");
+        user1.setEmail("student@usp.com");
+        user1.save();
+
+        User user2 = User.findByEmailPassword("student@usp.com", "password");
+        
+        if (user2 != null) {
+        
+            user2.setName("NewName");
+            user2.merge();
+            System.out.println(user1.getName()); // Imprime NewName
+        
+        }
+
+    }
+
+
+    public static void main(String args[]) {
+    
+        unitTest3();
+
     }
 
 }
