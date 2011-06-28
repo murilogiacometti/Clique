@@ -38,12 +38,6 @@ public class User extends Person {
     private Boolean facebook;
 
 
-    private static org.hibernate.Session userManager;
-
-    static {
-        userManager = HibernateUtil.openSession();
-    }
-
     public User() { }
 
 
@@ -74,26 +68,6 @@ public class User extends Person {
     public Boolean getFacebook() { return this.facebook; }
     public void setFacebook(Boolean facebook) { this.facebook = facebook; }
 
-    public void save() {
-  
-        userManager.beginTransaction();
-
-        userManager.save(this);
-
-        userManager.getTransaction().commit();
-  
-    }
-
-    public void merge() {
- 
-        userManager.beginTransaction();
-
-        userManager.merge(this);
-
-        userManager.getTransaction().commit();
-    
-    }
-
 
     /**
       * Retrieve an user from database, checking its email and password.
@@ -119,10 +93,10 @@ public class User extends Person {
         }
 
         // Get database connection
-        userManager.beginTransaction();
+        personManager.beginTransaction();
 
         // Load query as specified in annotations by its name
-        org.hibernate.Query query = userManager.getNamedQuery("findByEmailPassword");
+        org.hibernate.Query query = personManager.getNamedQuery("findByEmailPassword");
 
         // Prepare query with parameters
         query.setParameter("email", email);
@@ -132,7 +106,7 @@ public class User extends Person {
         User user = (User) query.uniqueResult();
         
         // Commit transaction
-        userManager.getTransaction().commit();
+        personManager.getTransaction().commit();
         
         return user;
     }

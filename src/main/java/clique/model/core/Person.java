@@ -28,11 +28,38 @@ public class Person implements Serializable {
     @Column
     protected String name;
 
+    protected static org.hibernate.Session personManager;
+
+    static {
+        personManager = HibernateUtil.openSession();
+    }
+
     public Integer getId() { return this.id; }
     protected void setId(Integer id) { this.id = id; }
 
     public String getName() { return this.name; }
     public void setName(String name) { this.name = name; }
+
+    public void save() {
+  
+        personManager.beginTransaction();
+
+        personManager.save(this);
+
+        personManager.getTransaction().commit();
+  
+    }
+
+    public void merge() {
+ 
+        personManager.beginTransaction();
+
+        personManager.merge(this);
+
+        personManager.getTransaction().commit();
+    
+    }
+
 
 }
 
