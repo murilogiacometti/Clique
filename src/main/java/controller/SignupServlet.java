@@ -1,9 +1,9 @@
-package controller;
+package clique.controller;
 
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-//import model.*;
+import clique.model.core.*;
 
 public class SignupServlet extends HttpServlet {
 
