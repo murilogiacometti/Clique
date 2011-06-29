@@ -11,15 +11,11 @@ import javax.mail.internet.*;
 
 class Emailer { 
 	private static Properties config = new Properties();
+	private static InputStream is;
 
-	static {
-		fetchConfig();
-	}
-
-	public static void fetchConfig() {
-		InputStream is = null;
+	public static void fetchConfig(ServletContext context) {
 		try {
-			is = ServletContext.getResourceAsStream("mail.properties");
+			is = context.getResourceAsStream("mail.properties");
 			config.load(is);
 
 		} catch (Exception e) {
@@ -33,12 +29,13 @@ class Emailer {
 		}
 	}
 
-	public static void refreshConfig() {
+	public static void refreshConfig(ServletContext context) {
 		config.clear();
-		fetchConfig();
+		fetchConfig(context);
 	}
 
-	public static boolean send(String address, String senderName) {
+	public static boolean send(String address, String senderName, ServletContext context) {
+		fetchConfig(context);
 		Session session = Session.getInstance(config);
 		MimeMessage message = new MimeMessage(session);
 
@@ -79,13 +76,15 @@ public class InviteFriendServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		String address = request.getParameter("email");
 
+		ServletContext context = getServletConfig().getServletContext();
+
 		String xmlResponse = "<status><return>";
 
 		if (user == null) {
 			response.sendRedirect("/home");
 		} else {
 			String sender = user.getName();
-			if (Emailer.send(address, sender)) {
+			if (Emailer.send(address, sender, context)) {
 				xmlResponse += "OK</return></status>";
 			} else {
 				xmlResponse += "ERROR</return></status>";
