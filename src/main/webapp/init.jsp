@@ -10,7 +10,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/start_signup_form.css" />
 
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<link type="text/css" href="css/south-street/jquery-ui-1.8.14.custom.css" rel="Stylesheet" />	
+	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.14.custom.min.js"></script>
+
 	<script type="text/javascript" src="js/tray.js"></script>
 
     <title>Clique</title>
@@ -22,7 +25,6 @@
 		<jsp:param name="login" value="false" />
 	</jsp:include>
 
-    <!-- Promo -->
     <div id="col-top"></div>
     <div id="col" class="box">
         <div id="col-browser"><img src="images/init_image.png" width="255" height="177" alt="" /></div> 

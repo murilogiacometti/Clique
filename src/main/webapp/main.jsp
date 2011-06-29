@@ -1,5 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 
+<%
+	//User user  = (User)session.getAttribute("user");
+	//String name = user.getName();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +16,10 @@
     <link rel="stylesheet" type="text/css" href="css/start_signup_form.css" />
     <link rel="stylesheet" type="text/css" href="css/panel.css" />
 
-	<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="Stylesheet" />	
+	<link type="text/css" href="css/south-street/jquery-ui-1.8.14.custom.css" rel="Stylesheet" />	
 	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.14.custom.min.js"></script>
+	
 	<script type="text/javascript" src="js/tray.js"></script>
 	<script type="text/javascript" src="js/panel.js"></script>
 
@@ -39,7 +44,7 @@
     <div id="col" class="box">
         <div id="control-panel">
 			<div class="panel" id="user-panel">
-				<h4><span>Joaozinho</span></h4>
+				<h4><span>JOAO!<!----></span></h4>
 			    <div class="panel-img" id="user-img-container"><img src="/clique/download_picture" width="125" height="150" /></div>
 		        <div class="panel_details">
 					interests 
@@ -52,7 +57,7 @@
 				<h4><span>Invite a friend!</span></h4>
 		        <div class="panel_details">
 					<input id="invite-field" name="email" type="text" value="Type the email here"/>
-					<input type="button" id="signup-submit" value="OK"/>
+					<input type="button" id="invite-submit" value="OK"/>
 					<h5 id="invite-message"></h5>
 		        </div>
 			</div>

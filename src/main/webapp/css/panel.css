@@ -20,10 +20,14 @@
 #invite-panel .panel_details #invite-field{
 	text-align:center;
 }
+
 #invite-message { text-align:center;}
+
+#invite-submit { margin-top:10px; }
 
 #control-panel .panel h4 {background:url("../design/dot-02.gif") 0 50% repeat-x;}
 #control-panel .panel h4 span {margin:20px;}
 #control-panel .panel .panel-img {text-align:center;}
 #control-panel .details p {margin:0;}
+
 

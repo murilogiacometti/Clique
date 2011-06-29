@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$("#invite-submit").button();
+	
 	//UPLOAD
 	var sendPicture = function() {
 		var pic_name = $("#picture").val();
@@ -13,6 +15,7 @@ $(document).ready(function(){
 			$("#picture-dialog").dialog('close');
 		}
 	}
+	
 	$("#picture-dialog").dialog({
 		autoOpen:false, 
 		buttons:{
@@ -22,6 +25,7 @@ $(document).ready(function(){
 			}
 		}
 	});
+	
 	$("#user-img-container").click(function(event) {
 		$("#picture-dialog").dialog('open');
 	});
@@ -29,7 +33,6 @@ $(document).ready(function(){
 	//INVITE
 	$("#signup-submit").click(function(event) {
 		var email = $("#invite-field").val();
-		alert(email);
 		if (email.match(/.+@.+[.].+/)) {	
 			$.ajax({
 			   	type: "POST",

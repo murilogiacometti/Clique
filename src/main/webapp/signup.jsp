@@ -23,8 +23,12 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/signup_form.css" />
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+	<link type="text/css" href="css/south-street/jquery-ui-1.8.14.custom.css" rel="Stylesheet" />	
+	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.14.custom.min.js"></script>
 	<script type="text/javascript" src="js/jquery.validate.js"></script>
+
 	<script type="text/javascript" src="js/signup_form_validation.js"></script>
 	<script type="text/javascript" src="js/tray.js"></script>
 

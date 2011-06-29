@@ -1,0 +1,29 @@
+#control-panel {
+	max-width:170px;
+	min-height:400px;
+
+}
+.panel {
+	background-color:#EFF9E5;
+	border-style:solid;
+	border-color:green;
+	border-width:1px;
+	border-radius: 05px;
+	margin-bottom:10px;
+	padding:3px;
+}
+
+#user-panel { min-height:200px; }
+
+#invite-panel { min-height:100px; }
+
+#invite-panel .panel_details #invite-field{
+	text-align:center;
+}
+#invite-message { text-align:center;}
+
+#control-panel .panel h4 {background:url("../design/dot-02.gif") 0 50% repeat-x;}
+#control-panel .panel h4 span {margin:20px;}
+#control-panel .panel .panel-img {text-align:center;}
+#control-panel .details p {margin:0;}
+
