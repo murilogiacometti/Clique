@@ -44,6 +44,8 @@ public class User extends Person {
 
     public User() { }
 
+    // GETTER's and SETTER's
+
 
     public String getEmail() { return this.email; }
     public void setEmail(String email) { this.email = email; }
@@ -74,6 +76,10 @@ public class User extends Person {
     
     public Boolean getFacebook() { return this.facebook; }
     public void setFacebook(Boolean facebook) { this.facebook = facebook; }
+
+    
+
+    // QUERIES
 
 
     /**
@@ -121,6 +127,8 @@ public class User extends Person {
         return user;
     }
 
+
+    // TESTS
 
     private static void unitTest1() {
     

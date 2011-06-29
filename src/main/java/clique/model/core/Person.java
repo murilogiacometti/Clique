@@ -9,7 +9,7 @@ import java.sql.*;
 import clique.model.util.*;
 
 @Entity
-@Table(name = "Persons")
+@Table(name = "People")
 @SequenceGenerator(name = "seqId", sequenceName = "seqPersonId")
 @Inheritance(strategy = InheritanceType.JOINED)
 
@@ -32,12 +32,24 @@ public class Person implements Serializable {
     @Column
     protected String name;
 
+    @OneToMany(mappedBy = "person")
+    protected Set<InterestPerson> interestPersons = new HashSet<InterestPerson>();
+
+
+
+    public Person() {}
+
+
+    // GET's and SET's
 
     public Integer getId() { return this.id; }
     protected void setId(Integer id) { this.id = id; }
 
     public String getName() { return this.name; }
     public void setName(String name) { this.name = name; }
+
+
+    // PERSISTENCE
 
     public void save(Session context) {
   
@@ -69,6 +81,9 @@ public class Person implements Serializable {
     
     }
 
+
+    // QUERIES
+
     public static ArrayList<Person> findByName(String name, Session context) {
     
         ArrayList<Person> people = new ArrayList<Person>();
@@ -90,6 +105,23 @@ public class Person implements Serializable {
         return people;
 
     }
+
+
+    // RELATIONS
+
+    public void add(Interest interest, Float weight, Session context) {
+    
+        InterestPerson interestPerson = new InterestPerson();
+        interestPerson.setInterest(interest);
+        interestPerson.setPerson(this);
+        interestPerson.setWeight(weight);
+
+        interestPerson.save(context);
+    
+    }
+
+
+    // TESTS
 
     private static void unitTest1() {
        

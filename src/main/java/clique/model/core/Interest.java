@@ -12,12 +12,15 @@ import java.sql.*;
 public class Interest implements Serializable {
 
     @Id
-    @Column(name = "personId", nullable = false, unique = true)
+    @Column(name = "interestId", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqId")
     private Integer id;
 
     @Column(nullable = false, unique = true)
     private String affix;
+
+    @OneToMany(mappedBy = "interest")
+    private Set<InterestPerson> interestPersons = new HashSet();
 
     public Interest() {}
 
