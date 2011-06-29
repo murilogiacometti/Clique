@@ -25,11 +25,17 @@ public class HibernateUtil {
 
     }
 
-    public static Session openSession()
-            throws HibernateException {
+    public static Session openContext() throws HibernateException {
 
         return sessionFactory.openSession();
     
     }
+
+    public static void closeContext(Session context) {
+            
+        context.close();
+
+    }
+
 }
 
