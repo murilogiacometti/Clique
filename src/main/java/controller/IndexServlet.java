@@ -1,4 +1,4 @@
-package controller;
+package clique.controller;
 
 import java.io.*;
 import javax.servlet.*;
