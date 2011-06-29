@@ -2,13 +2,13 @@
   	<fieldset>  
 		<br /><br />
 		<div class="form_line">
-			<div class="form_label"><label>E-mail:</label></div>
-			<div class="form_input"><input id="start_signup_email" name="email" value="<%= email %>"type="text" /></div>
+			<div class="form_label"><label>Name:</label></div>
+			<div class="form_input"><input id="start_signup_name" name="name" value="<%= name %>" type="text" /></div>
 			<div class="message_field"></div>
 		</div>
 		<div class="form_line">
-			<div class="form_label"><label>Name:</label></div>
-			<div class="form_input"><input id="start_signup_name" name="name" value="<%= name %>" type="text" /></div>
+			<div class="form_label"><label>E-mail:</label></div>
+			<div class="form_input"><input id="start_signup_email" name="email" value="<%= email %>"type="text" /></div>
 			<div class="message_field"></div>
 		</div>
 		<div class="form_line">
