@@ -4,6 +4,9 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import clique.model.core.*;
+import clique.model.util.*;
+
+import org.hibernate.*;
 
 public class SignupServlet extends HttpServlet {
 
@@ -19,6 +22,8 @@ public class SignupServlet extends HttpServlet {
 
 		 Boolean useFacebook = new Boolean(facebook);
 
+		 Session context = HibernateUtil.openContext();
+
 		 User user = new User();
 
 		user.setName(name);	
@@ -28,7 +33,9 @@ public class SignupServlet extends HttpServlet {
 		user.setFacebook(useFacebook);
 
 
-		user.save();
+		user.save(context);
+
+		HibernateUtil.closeContext(context);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/");
 		dispatcher.forward(request, response);

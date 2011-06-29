@@ -4,6 +4,9 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import clique.model.core.*;
+import clique.model.util.*;
+
+import org.hibernate.*;
 
 public class LoginServlet extends HttpServlet {
 
@@ -15,7 +18,11 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
 	RequestDispatcher rd = null;
 	String message = "";
 
-	User user = User.findByEmailPassword(email, password);
+	Session context = HibernateUtil.openContext();
+
+	User user = User.findByEmailPassword(email, password, context);
+
+	HibernateUtil.closeContext(context);
 
 
 	if (user != null) {

@@ -72,7 +72,6 @@ public class UploadPictureServlet extends HttpServlet {
 		
 		
 			String pictureformat = ImageIdentifier.getFormat(picture.getName());
-			//verificar com o murilo
 			user.setImageType(pictureformat);
 			File cliquedir = new File("/tmp/clique");
 
