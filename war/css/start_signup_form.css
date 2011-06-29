@@ -1,0 +1,23 @@
+#start_signup_form .form_label{
+  text-align:right;
+  float:left;
+  width:50px;
+  padding:5px;
+}
+
+#start_signup_form .form_input input {
+  width:250px;
+  height:20px;
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 5px;		
+}
+
+#start_signup_form #form_submit{
+  text-align:center;
+}
+
+#start_signup_form #facebook{
+  text-align:center;
+  margin-bottom: 20px;
+}
