@@ -3,6 +3,10 @@
 
 <%
 	String message = (String) request.getParameter("message");
+	boolean logged = false;
+	if (user != null) {
+		logged = true;
+	}	
 %>
 
 <!-- HEADER -->
@@ -33,7 +37,7 @@
 	<div id="login" class="box">
 		<!-- LOGIN -->
 		<c:choose>
-			<c:when test="${param.login eq 'false'}" >
+			<c:when test="<%= logged == false %>" >
 				<form id="login_form" action="login" method="post">
 					<div id="username" class="box">
 				        <div id="username-input"><span class="noscreen">Username:</span><input type="text" size="30" name="username" id="username_field" value="username"/></div>
@@ -43,6 +47,7 @@
 					</div>
 					<div id="submit" class="box">
 				        <div id="login-submit"><input type="submit" value="OK" /></div>
+				
 				    </div>
 				</form>
 

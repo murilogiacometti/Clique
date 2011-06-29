@@ -1,3 +1,14 @@
+<%
+	String name = (String) request.getParameter("name");
+	if (name == null) {
+		name = "";
+	}
+	String email = (String) request.getParameter("email");
+	if (email == null) {
+		email = "";
+	}
+%>
+
 <form id="signup_form" action="signup" method="post">
   	<fieldset>  
 		<br /><br />
