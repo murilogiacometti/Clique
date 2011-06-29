@@ -54,7 +54,7 @@ class Emailer {
 
 			Transport transport = session.getTransport("smpt");
 			String host = config.getProperty("mail.smtp.host");
-			String port = config.getProperty("mail.smtp.port");
+			int port = (new Integer(config.getProperty("mail.smtp.port"))).intValue();
 			String username = config.getProperty("mail.smtp.user");
 			String password = config.getProperty("mail.smtp.password");
 
