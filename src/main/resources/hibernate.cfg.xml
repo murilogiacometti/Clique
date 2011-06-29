@@ -32,7 +32,8 @@
         <property name="hbm2ddl.auto">create</property>
 
         <mapping class="clique.model.core.User"     />
-        <mapping class="clique.model.core.Person"     />
+        <mapping class="clique.model.core.Person"   />
+        <mapping class="clique.model.core.Interest" />
 	      
     </session-factory>
 

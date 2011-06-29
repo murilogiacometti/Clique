@@ -35,10 +35,16 @@ public class User extends Person {
     private String address;
 
     @Column
+    private String imageType;
+
+    @Column
     private Boolean facebook;
 
 
+
     public User() { }
+
+    // GETTER's and SETTER's
 
 
     public String getEmail() { return this.email; }
@@ -65,8 +71,15 @@ public class User extends Person {
     public String getAddress() { return this.address; }
     public void setAddress(String address) { this.address = address; }
     
+    public String getImageType() { return this.imageType; }
+    public void setImageType(String imageType) { this.imageType = imageType; }
+    
     public Boolean getFacebook() { return this.facebook; }
     public void setFacebook(Boolean facebook) { this.facebook = facebook; }
+
+    
+
+    // QUERIES
 
 
     /**
@@ -74,9 +87,11 @@ public class User extends Person {
       *
       * @param email    User's mail string.
       * @param password User's password string.
+      * @param context  Opened session representing current context.
       * @return User corresponding to given email and password.
       */
-    public static User findByEmailPassword(String email, String password) {
+    public static User findByEmailPassword(String email, String password, 
+            Session context) {
 
         String hashedPassword = null;
 
@@ -92,11 +107,12 @@ public class User extends Person {
             // Ignore exception as they will never happen
         }
 
-        // Get database connection
-        personManager.beginTransaction();
+
+        // Get database context
+        context.beginTransaction();
 
         // Load query as specified in annotations by its name
-        org.hibernate.Query query = personManager.getNamedQuery("findByEmailPassword");
+        org.hibernate.Query query = context.getNamedQuery("findByEmailPassword");
 
         // Prepare query with parameters
         query.setParameter("email", email);
@@ -106,53 +122,67 @@ public class User extends Person {
         User user = (User) query.uniqueResult();
         
         // Commit transaction
-        personManager.getTransaction().commit();
+        context.getTransaction().commit();
         
         return user;
     }
 
 
+    // TESTS
+
     private static void unitTest1() {
     
+        Session context = HibernateUtil.openContext();
+
         User user = new User();
         user.setName("Name");
         user.setPassword("password");
         user.setEmail("student@usp.com");
-        user.save();
+        user.save(context);
+
+        HibernateUtil.closeContext(context);
     
     }
 
     private static void unitTest2() {
     
+        Session context = HibernateUtil.openContext();
+        
         User user = new User();
         user.setName("Name");
         user.setPassword("password");
         user.setEmail("student@usp.com");
-        user.save();
+        user.save(context);
 
         user.setName("NewName");
 
-        user.merge();
+        user.merge(context);
+
+        HibernateUtil.closeContext(context);
 
     }
 
     private static void unitTest3() {
     
+        Session context = HibernateUtil.openContext();
+        
         User user1 = new User();
         user1.setName("Name");
         user1.setPassword("password");
         user1.setEmail("student@usp.com");
-        user1.save();
+        user1.save(context);
 
-        User user2 = User.findByEmailPassword("student@usp.com", "password");
+        User user2 = User.findByEmailPassword("student@usp.com", "password", context);
         
         if (user2 != null) {
         
             user2.setName("NewName");
-            user2.merge();
+            user2.merge(context);
             System.out.println(user1.getName()); // Imprime NewName
         
         }
+        
+        HibernateUtil.closeContext(context);
 
     }
 
