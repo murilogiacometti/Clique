@@ -12,10 +12,10 @@ public class IndexServlet extends HttpServlet {
 		RequestDispatcher rd = null; 
 
 		if (session.getAttribute("user") != null) {
-			rd = request.getRequestDispatcher("/main.jsp");
+			rd = request.getRequestDispatcher("main.jsp");
 			rd.forward(request,response);
 		} else {
-			rd = request.getRequestDispatcher("/init.jsp");
+			rd = request.getRequestDispatcher("init.jsp");
 			rd.forward(request,response);
 		}
 
