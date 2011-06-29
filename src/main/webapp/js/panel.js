@@ -31,7 +31,7 @@ $(document).ready(function(){
 	});
 	
 	//INVITE
-	$("#signup-submit").click(function(event) {
+	$("#invite-submit").click(function(event) {
 		var email = $("#invite-field").val();
 		if (email.match(/.+@.+[.].+/)) {	
 			$.ajax({
