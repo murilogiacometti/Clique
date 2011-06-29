@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	$("input:submit").button();
+
 	if ($("#username_field").val() == "username") {
 		$("#username_field").css("color", "grey");
 	}

@@ -30,31 +30,31 @@
 	    </form>
 	</div>
 	<!-- /SEARCH -->
+	<div id="login" class="box">
+		<!-- LOGIN -->
+		<c:choose>
+			<c:when test="${param.login eq 'false'}" >
+				<form id="login_form" action="login" method="post">
+					<div id="username" class="box">
+				        <div id="username-input"><span class="noscreen">Username:</span><input type="text" size="30" name="username" id="username_field" value="username"/></div>
+					</div>
+					<div id="password" class="box">
+				        <div id="password-input"><span class="noscreen">Password:</span><input type="password" size="30" name="password" id="password_field" value="password" /></div>
+					</div>
+					<div id="submit" class="box">
+				        <div id="login-submit"><input type="submit" value="OK" /></div>
+				    </div>
+				</form>
 
-	<!-- LOGIN -->
-	<c:choose>
-		<c:when test="${param.login eq 'false'}" >
-			<form id="login_form" action="login" method="post">
-				<div id="username" class="box">
-			        <div id="username-input"><span class="noscreen">Username:</span><input type="text" size="30" name="username" id="username_field" value="username"/></div>
+			</c:when>
+		    <c:otherwise>
+				<div id="logout" class="box">
+					<div id="logout_link"><a href="logout">Log out</a></div>
 				</div>
-				<div id="password" class="box">
-			        <div id="password-input"><span class="noscreen">Password:</span><input type="password" size="30" name="password" id="password_field" value="password" /></div>
-				</div>
-				<div id="submit" class="box">
-			        <div id="login-submit"><input type="submit" value="OK" /></div>
-			    </div>
-			</form>
-
-		</c:when>
-	    <c:otherwise>
-			<div id="logout" class="box">
-				<div id="logout_link"><a href="logout">Log out</a></div>
-			</div>
-		</c:otherwise>
-	</c:choose>
-	<!-- /LOGIN -->
-		
+			</c:otherwise>
+		</c:choose>
+		<!-- /LOGIN -->
+	</div>	
 	<hr class="noscreen" />
 </div>
 <!-- /TRAY -->

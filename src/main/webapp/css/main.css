@@ -65,11 +65,12 @@ ul.ul-list span.date {padding-right:10px;}
         #username div {position:relative; width:185px;}
         #password div {position:relative; width:185px;}
 
-        #username #username-input {position:absolute; top:0; left:0; width:150px; height:30px;  overflow:hidden;}
+		#login {position:relative; top:px; left:-7px;}
+        #username #username-input { position:absolute; top:0; left:10px; width:150px; height:30px;  overflow:hidden;}
         #username #username-input input {width:136px; margin:4px; border:0; height: 20px; border-radius: 5px; font:100%/1 "arial",sans-serif;}
-        #password #password-input { position:absolute; top:0; left:0; width:150px; height:30px;  overflow:hidden;}
+        #password #password-input { position:absolute; top:0; left:-5px; width:150px; height:30px;  overflow:hidden;}
         #password #password-input input { width:136px; margin:4px; border:0; height: 20px; border-radius: 5px; font:100%/1 "arial",sans-serif;}
-        #submit #login-submit {position:absolute; top:0; right:50; width:30px; margin:4px;}
+        #submit #login-submit {position:absolute; top:-5px; left:-20px; width:30px; margin:4px;}
 
         #logout {position:absolute; top:13px; right:55px;}
         #logout #logout_link{position:absolute; top:0; right:50; width:50px;}
@@ -82,7 +83,7 @@ ul.ul-list span.date {padding-right:10px;}
         #search #search-input {position:relative; top:0px; width:185px;}
         #search #search-input {position:absolute; top:0px; left:0px; width:150px; height:30px; border-radius: 15px; overflow:hidden;}
         #search #search-input input {width:136px; margin:4px; border:0; height: 20px; border-radius: 5px; font:100%/1 "arial",sans-serif;}
-        #search #search-submit {position:absolute; top:0px; margin:4px; left:160px; right:0px; width:30px;}
+        #search #search-submit {position:relative; left:150px;}
 
 
     #footer {clear:both; padding:20px 20px 40px 20px; font-size:85%;}
