@@ -30,7 +30,7 @@
 	<jsp:include page="components/header.jsp" />
 
 	<div id="picture-dialog">
-		<form name="send-picture-form" method="post" action="upload_picture" enctype="multipart/form-data">
+		<form id="send-picture-form" name="send-picture-form" method="post" action="upload_picture" enctype="multipart/form-data">
 			<label><strong>Picture:</strong></label>
             <input type="file" name="picture" id="picture"/>
 			<h4 id="picture-message">The image must be in one of the following formats: jpeg, gif, png</h4>
