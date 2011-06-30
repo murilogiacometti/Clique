@@ -16,7 +16,7 @@
 </div> 
 <!-- /HEADER -->
 
-<c:if test="${message != null}">
+<c:if test="<%= message != null %>">
 	<div id="message" class="box">
 		<p><%= message %></p>
 	</div>

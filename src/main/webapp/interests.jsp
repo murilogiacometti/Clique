@@ -46,7 +46,7 @@
 			<div id="interest_query" class="ui-widget">
 				<h1 id="interest_label">Type your interests!</h1>
 				<form method="post" action="add_interest">
-					<input id="interest_input"/>
+					<input name="query" id="interest_input"/>
 					<input id="interest-submit" type="submit" value="Add"/>
 				</form>
 			</div>				
