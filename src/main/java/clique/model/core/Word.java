@@ -16,7 +16,7 @@ import java.sql.*;
 
     @NamedQuery(
         name = "getPeople", 
-        query = "SELECT person FROM Person person JOIN person.personWords association JOIN association.word word WHERE word.id = :wordId"
+        query = "SELECT person FROM PersonWord person JOIN person.word word WHERE word.id = :wordId ORDER BY person.score DESC"
     ),
 
     @NamedQuery(
@@ -66,6 +66,11 @@ public class Word implements Serializable {
 
     public Affix getAffix() { return this.affix; }
 
+    public String toString() {
+        return this.word;
+    }
+
+
     public void save(Session context) {
     
         context.beginTransaction();
@@ -90,9 +95,9 @@ public class Word implements Serializable {
     
     }
 
-    public ArrayList<Person> getPeople(int maxResults, Session context) {
+    public ArrayList<PersonWord> getPeople(int maxResults, Session context) {
         
-        ArrayList<Person> people = new ArrayList<Person>();
+        ArrayList<PersonWord> people = new ArrayList<PersonWord>();
 
         context.beginTransaction();
 
@@ -103,7 +108,7 @@ public class Word implements Serializable {
 
         for(Iterator it = query.iterate(); it.hasNext(); ) {
             
-            people.add((Person) it.next());
+            people.add((PersonWord) it.next());
         
         }
 
@@ -206,18 +211,18 @@ public class Word implements Serializable {
         person4.save(context);
         person5.save(context);
 
-        person1.add(word, new Integer(1), context);
-        person2.add(word, new Integer(1), context);
-        person3.add(word, new Integer(1), context);
-        person4.add(word, new Integer(1), context);
-        person5.add(word, new Integer(1), context);
+        person1.add(word, new Integer(21), context);
+        person2.add(word, new Integer(2), context);
+        person3.add(word, new Integer(3), context);
+        person4.add(word, new Integer(4), context);
+        person5.add(word, new Integer(15), context);
 
         word.merge(context);
 
-        ArrayList<Person> people = word.getPeople(10, context);
+        ArrayList<PersonWord> people = word.getPeople(10, context);
 
         for (int person = 0; person < people.size(); person++) {
-            System.out.println(people.get(person).getName());
+            System.out.println(people.get(person).getPerson().getName());
         }
 
         HibernateUtil.closeContext(context);
