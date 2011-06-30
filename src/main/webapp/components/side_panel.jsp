@@ -1,7 +1,7 @@
 <div id="control-panel">
 	<div class="panel" id="user-panel">
 		<h4><span><%= user.getName() %></span></h4>
-	    <div class="panel-img" id="user-img-container"><img src="/clique/download_picture?id=<%= user.getId() %>" width="125" height="150" /></div>
+	    <div class="panel-img" title="Change your profile picture" id="user-img-container"><img src="/clique/download_picture?id=<%= user.getId() %>" width="125" height="150" /></div>
         <div class="panel_details">
 			interests 
 			interests
