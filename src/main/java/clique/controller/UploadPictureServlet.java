@@ -11,6 +11,9 @@ import org.apache.commons.fileupload.*;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 
+import clique.model.util.*;
+import org.hibernate.*;
+
 
 class ImageIdentifier {
 
@@ -38,8 +41,6 @@ public class UploadPictureServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 
-		System.out.println("Fui chamado!!");
-		
 		User user = (User)  session.getAttribute("user");
 		int id = user.getId();
 		FileItem picture = null;
@@ -71,23 +72,43 @@ public class UploadPictureServlet extends HttpServlet {
 					}
 				}
 			}
-		
-		
-			String pictureformat = ImageIdentifier.getFormat(picture.getName());
-			user.setImageType(pictureformat);
+
 			File cliquedir = new File("/tmp/clique");
 
 			if (!cliquedir.isDirectory()) 
 				cliquedir.mkdir();
-			
+
+			File tmpFile = new File("/tmp/clique/tmp-" + picture.getName());
 			try {
-				File picturefile = new File("/tmp/clique/" + id + "." + pictureformat);
-				picturefile.createNewFile();
-				picture.write(picturefile);
+				picture.write(tmpFile);
 			} catch (Exception e) {
-				response.sendRedirect("/home");
-				e.printStackTrace();
+				System.out.println("Could not upload temp file "+ picture.getName());
 			}
+		
+			String pictureformat = ImageIdentifier.getFormat(tmpFile);
+
+			if (user.getImageType() != null) {
+				File currentPicture = new File("/tmp/clique/" + user.getId() + "." + user.getImageType());
+				if (currentPicture.isFile()) {
+					try {
+						currentPicture.delete();
+					} catch (Exception e) {
+						System.out.println("Could not remove old user image: " + currentPicture.getName());
+					}
+				}
+			}
+
+			Session context = HibernateUtil.openContext();
+
+			user.setImageType(pictureformat);
+			user.merge(context);
+
+			HibernateUtil.closeContext(context);
+
+			File picturefile = new File("/tmp/clique/" + Integer.toString(id) + "." + pictureformat);
+			tmpFile.renameTo(picturefile);
+
+			response.sendRedirect("home");
 
 		}	
 	}	

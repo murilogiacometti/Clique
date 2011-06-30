@@ -8,8 +8,8 @@ import org.apache.commons.fileupload.*;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 
-//import org.hibernate.*;
-//import clique.model.util.*;
+import org.hibernate.*;
+import clique.model.util.*;
 
 
 public class DownloadPictureServlet extends HttpServlet {
@@ -17,15 +17,12 @@ public class DownloadPictureServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		HttpSession session = request.getSession();
-		//int id_user = Integer.parseInt(request.getParameter("id"));
+		int id_user = Integer.parseInt(request.getParameter("id"));
 		
-		//Session context = HibernateUtil.openContext();
-		//User user = User.findById(new Integer(id_user), context);
-		//HibernateUtil.closeContext(context);
+		Session context = HibernateUtil.openContext();
+		User user = (User) Person.findById(new Integer(id_user), context);
+		HibernateUtil.closeContext(context);
 		
-		//FIXME
-		User user = (User) session.getAttribute("user");
-		int id_user = user.getId();
 		
 		if (user == null) {
 			response.sendRedirect("/home");
@@ -41,7 +38,7 @@ public class DownloadPictureServlet extends HttpServlet {
 					pictureformat = "jpg";
 
 				} else {
-					picturefile = new File("/tmp/clique" + id_user + "." + pictureformat);
+					picturefile = new File("/tmp/clique/" + id_user + "." + pictureformat);
 				}
 				
 				byte[] buf = new byte [1024];

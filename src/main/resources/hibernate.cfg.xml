@@ -33,8 +33,9 @@
 
         <mapping class="clique.model.core.User"     />
         <mapping class="clique.model.core.Person"   />
-        <mapping class="clique.model.core.Interest" />
-        <mapping class="clique.model.core.InterestPerson" />
+        <mapping class="clique.model.core.PersonWord"   />
+        <mapping class="clique.model.core.Word"   />
+        <mapping class="clique.model.core.Affix"   />
 	      
     </session-factory>
 
