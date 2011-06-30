@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$("#invite-submit").button();
 	
-	$('.panel-img').hover(
+	$('.panel-img').hover({
 		function() {
 			$(this).css('cursor','pointer');
 		}, 
