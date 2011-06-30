@@ -20,4 +20,13 @@ $(document).ready(function(){
 		},
 		minLength: 2
 	});
+	$( "#relevance" ).slider({
+		value:5,
+		min: 0,
+		max: 10,
+		step: 1,
+		slide: function( event, ui ) {
+			//$( "#amount" ).val( "$" + ui.value );
+		}
+	});
 });

@@ -49,6 +49,7 @@
 					<input name="query" id="interest_input"/>
 					<input id="interest-submit" type="submit" value="Add"/>
 				</form>
+				<div id="relevance"></div>
 			</div>				
 		</div>		
     </div> <!-- /col -->
