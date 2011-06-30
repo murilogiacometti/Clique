@@ -1,5 +1,6 @@
 <%@ page isELIgnored = "false" %>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ page import="clique.model.core.*" %>
 
 <%
  	User user  = (User)session.getAttribute("user");
