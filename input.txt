@@ -1,0 +1,690 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="bitly-verification" content="b3acd9a47f4e"/>
+
+<title>Plataforma Blog</title>
+
+<link rel="stylesheet" href="http://blog.plataformatec.com.br/wp-content/themes/plataforma/style.css" type="text/css" media="screen" />
+<link rel="pingback" href="http://blog.plataformatec.com.br/xmlrpc.php" />
+
+
+<link rel="alternate" type="application/rss+xml" title="Plataforma Tecnologia Blog &raquo; Feed" href="http://blog.plataformatec.com.br/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Plataforma Tecnologia Blog &raquo; Comments Feed" href="http://blog.plataformatec.com.br/comments/feed/" />
+<script type='text/javascript' src='http://blog.plataformatec.com.br/wp-includes/js/l10n.js?ver=20101110'></script>
+
+<script type='text/javascript' src='http://blog.plataformatec.com.br/wp-includes/js/jquery/jquery.js?ver=1.4.4'></script>
+<script type='text/javascript' src='http://blog.plataformatec.com.br/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.1.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.plataformatec.com.br/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.plataformatec.com.br/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='Plataforma Tecnologia Blog' href='http://blog.plataformatec.com.br/' />
+<meta name="generator" content="WordPress 3.1" />
+
+<!-- All in One SEO Pack 1.6.13.1 by Michael Torbert of Semper Fi Web Design[365,399] -->
+<meta name="description" content="O espaço da Plataforma Tecnologia para falar sobre Ruby, Ruby on Rails e engenharia de software." />
+<meta name="keywords" content="plataformatec, plataforma tecnologia, consultoria, engenharia de software, rails, tutorial, ruby on rails, agile, scrum, xp, extreme programming, metodologias ágeis" />
+<link rel="canonical" href="http://blog.plataformatec.com.br/" />
+<!-- /all in one seo pack -->
+
+<link rel="stylesheet" href="http://blog.plataformatec.com.br/wp-content/plugins/wp-syntax/wp-syntax.css" type="text/css" media="screen" />
+<!-- Google Analytics Tracking by Google Analyticator 6.1.2: http://ronaldheft.com/code/analyticator/ -->
+
+<script type="text/javascript">
+	var analyticsFileTypes = [''];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-8268430-2']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+<body class="home blog">
+  <div id="general">
+    <!-- inicio header -->
+    <div id="header">
+      <div id="triade">
+        <div class="triadeLinks">
+          <a href="http://plataformatec.com.br/">Site</a>&nbsp;|
+          <a href="http://blog.plataformatec.com.br/" class="selected">Blog</a>
+
+        </div>
+      </div>
+      <div id="logo"><a href="http://blog.plataformatec.com.br/"><img src="http://blog.plataformatec.com.br/wp-content/themes/plataforma/images/logo_blog.gif" alt="Plataforma Tecnologia"></a></div>
+    </div>
+<div id="sidebar" role="complementary">
+  <div id="followus" class="itemSidebar widget_follow">
+    <h2>Feeds</h2>
+    <div class="contentSidebar">
+      <ul>
+
+        <li><a href="http://feeds.feedburner.com/PlataformaBlog"><img src="http://blog.plataformatec.com.br/wp-content/themes/plataforma/images/feed.png" alt="RSS" title="RSS">All</a></li>
+        <li><a href="http://feeds.feedburner.com/PlataformaBlog_english"><img src="http://blog.plataformatec.com.br/wp-content/themes/plataforma/images/us.gif" alt="US" title="US">English only</a></li>
+        <li><a href="http://feeds.feedburner.com/PlataformaBlog_portugues"><img src="http://blog.plataformatec.com.br/wp-content/themes/plataforma/images/br.gif" alt="BR" title="BR">Em português apenas</a></li>
+      </ul>
+    </div>
+  </div>
+<!--
+  <div id="events" class="itemSidebar widget_events">
+    <h2>Events</h2>
+    <div class="contentSidebar">
+      <p style="text-align:center">
+        <a href="http://oxenterails.com//"><img src="http://blog.plataformatec.com.br/wp-content/uploads/2010/07/badgeB_oxente_rails.jpg" alt="Oxente Rails - Eu Vou"/></a>
+      </p>
+    </div>
+  </div>
+-->
+  <div id="text-3" class="itemSidebar widget_text"><h2>Check out our book!</h2><div class="contentSidebar">			<div class="textwidget"><div>
+
+   <p style="text-align: center; margin-bottom: 10px"><a href="http://plataformatec.com.br/crafting-rails-applications/">
+     <img width="224" height="272" src="http://plataformatec.com.br/crafting-rails-applications/imagens/capa_crafting.png" alt="Crafting Rails Applications">
+   </a></p>
+
+  <p><a href="http://plataformatec.com.br/crafting-rails-applications/">Crafting Rails Applications</a> is the first resource that deep dives into the new Rails 3 APIs and tells you how use them to write better web applications and make your day-to-day work with Rails more productive.</p>
+</div></div>
+		</div></div><div id="text-4" class="itemSidebar widget_text"><h2>Who we are</h2><div class="contentSidebar">			<div class="textwidget">      <p>This is the company blog of <b>&lt;plataforma/&gt;</b>, a web consultancy firm that provides training and web development services using Ruby on Rails. You can check our company web site <a href="http://www.plataformatec.com.br/en">in english</a> or <a href="http://www.plataformatec.com.br/">em português</a>.</p>
+
+</div>
+		</div></div><div id="search-3" class="itemSidebar widget_search"><h2>Search</h2><div class="contentSidebar"><form role="search" method="get" id="searchform" action="http://blog.plataformatec.com.br/" >
+	<div><label class="screen-reader-text" for="s">Search for:</label>
+	<input type="text" value="" name="s" id="s" />
+	<input type="submit" id="searchsubmit" value="Search" />
+	</div>
+	</form></div></div><div id="categories-3" class="itemSidebar widget_categories"><h2>Posts by language</h2><div class="contentSidebar">		<ul>
+
+	<li class="cat-item cat-item-1"><a href="http://blog.plataformatec.com.br/category/english/" title="View all posts filed under English">English</a> (55)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://blog.plataformatec.com.br/category/portugues/" title="View all posts filed under Português">Português</a> (22)
+</li>
+		</ul>
+</div></div>		<div id="recent-posts-3" class="itemSidebar widget_recent_entries">		<h2>Recent posts</h2><div class="contentSidebar">		<ul>
+
+				<li><a href="http://blog.plataformatec.com.br/2011/06/multipart-templates-with-markerb/" title="Multipart templates with Markerb">Multipart templates with Markerb</a></li>
+				<li><a href="http://blog.plataformatec.com.br/2011/06/elixir-v0-3-0-released/" title="Elixir v0.3.0 released!">Elixir v0.3.0 released!</a></li>
+				<li><a href="http://blog.plataformatec.com.br/2011/05/plataformatec-at-railsconf-2011/" title="PlataformaTec at RailsConf 2011!">PlataformaTec at RailsConf 2011!</a></li>
+				<li><a href="http://blog.plataformatec.com.br/2011/05/simpleform-1-4-is-out/" title="SimpleForm 1.4 is out">SimpleForm 1.4 is out</a></li>
+				<li><a href="http://blog.plataformatec.com.br/2011/05/elixir-v0-2-0-released/" title="Elixir v0.2.0 released!">Elixir v0.2.0 released!</a></li>
+			<script type="text/javascript">
+	// <![CDATA[
+		var disqus_shortname = 'plataformatecblog';
+		var disqus_domain = 'disqus.com';
+		(function () {
+			var nodes = document.getElementsByTagName('span');
+			for (var i = 0, url; i < nodes.length; i++) {
+				if (nodes[i].className.indexOf('dsq-postid') != -1) {
+					nodes[i].parentNode.setAttribute('data-disqus-identifier', nodes[i].getAttribute('rel'));
+					url = nodes[i].parentNode.href.split('#', 1);
+					if (url.length == 1) url = url[0];
+					else url = url[1]
+					nodes[i].parentNode.href = url + '#disqus_thread';
+				}
+			}
+			var s = document.createElement('script'); s.async = true;
+			s.type = 'text/javascript';
+			s.src = 'http://' + disqus_domain + '/forums/' + disqus_shortname + '/count.js';
+			(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		}());
+	//]]>
+	</script>
+
+		</ul>
+		</div></div><div id="archives-3" class="itemSidebar widget_archive"><h2>Archive</h2><div class="contentSidebar">		<ul>
+			<li><a href='http://blog.plataformatec.com.br/2011/06/' title='June 2011'>June 2011</a>&nbsp;(2)</li>
+	<li><a href='http://blog.plataformatec.com.br/2011/05/' title='May 2011'>May 2011</a>&nbsp;(3)</li>
+	<li><a href='http://blog.plataformatec.com.br/2011/04/' title='April 2011'>April 2011</a>&nbsp;(2)</li>
+
+	<li><a href='http://blog.plataformatec.com.br/2011/03/' title='March 2011'>March 2011</a>&nbsp;(4)</li>
+	<li><a href='http://blog.plataformatec.com.br/2011/02/' title='February 2011'>February 2011</a>&nbsp;(5)</li>
+	<li><a href='http://blog.plataformatec.com.br/2011/01/' title='January 2011'>January 2011</a>&nbsp;(1)</li>
+	<li><a href='http://blog.plataformatec.com.br/2010/12/' title='December 2010'>December 2010</a>&nbsp;(4)</li>
+	<li><a href='http://blog.plataformatec.com.br/2010/11/' title='November 2010'>November 2010</a>&nbsp;(2)</li>
+
+	<li><a href='http://blog.plataformatec.com.br/2010/09/' title='September 2010'>September 2010</a>&nbsp;(2)</li>
+	<li><a href='http://blog.plataformatec.com.br/2010/08/' title='August 2010'>August 2010</a>&nbsp;(3)</li>
+	<li><a href='http://blog.plataformatec.com.br/2010/07/' title='July 2010'>July 2010</a>&nbsp;(2)</li>
+	<li><a href='http://blog.plataformatec.com.br/2010/06/' title='June 2010'>June 2010</a>&nbsp;(3)</li>
+	<li><a href='http://blog.plataformatec.com.br/2010/05/' title='May 2010'>May 2010</a>&nbsp;(4)</li>
+
+	<li><a href='http://blog.plataformatec.com.br/2010/04/' title='April 2010'>April 2010</a>&nbsp;(5)</li>
+	<li><a href='http://blog.plataformatec.com.br/2010/03/' title='March 2010'>March 2010</a>&nbsp;(2)</li>
+	<li><a href='http://blog.plataformatec.com.br/2010/02/' title='February 2010'>February 2010</a>&nbsp;(6)</li>
+	<li><a href='http://blog.plataformatec.com.br/2010/01/' title='January 2010'>January 2010</a>&nbsp;(3)</li>
+	<li><a href='http://blog.plataformatec.com.br/2009/12/' title='December 2009'>December 2009</a>&nbsp;(4)</li>
+
+	<li><a href='http://blog.plataformatec.com.br/2009/11/' title='November 2009'>November 2009</a>&nbsp;(4)</li>
+	<li><a href='http://blog.plataformatec.com.br/2009/10/' title='October 2009'>October 2009</a>&nbsp;(4)</li>
+	<li><a href='http://blog.plataformatec.com.br/2009/09/' title='September 2009'>September 2009</a>&nbsp;(6)</li>
+	<li><a href='http://blog.plataformatec.com.br/2009/08/' title='August 2009'>August 2009</a>&nbsp;(4)</li>
+	<li><a href='http://blog.plataformatec.com.br/2009/07/' title='July 2009'>July 2009</a>&nbsp;(2)</li>
+
+		</ul>
+</div></div><div id="tag_cloud-3" class="itemSidebar widget_tag_cloud"><h2>Tags</h2><div class="contentSidebar"><div class="tagcloud"><a href='http://blog.plataformatec.com.br/tag/acceptance-tests/' class='tag-link-130' title='2 topics' style='font-size: 10.172413793103pt;'>acceptance tests</a>
+<a href='http://blog.plataformatec.com.br/tag/agile/' class='tag-link-123' title='2 topics' style='font-size: 10.172413793103pt;'>Agile</a>
+<a href='http://blog.plataformatec.com.br/tag/authentication/' class='tag-link-37' title='6 topics' style='font-size: 14.637931034483pt;'>authentication</a>
+<a href='http://blog.plataformatec.com.br/tag/cache/' class='tag-link-28' title='1 topic' style='font-size: 8pt;'>cache</a>
+<a href='http://blog.plataformatec.com.br/tag/capybara/' class='tag-link-94' title='3 topics' style='font-size: 11.620689655172pt;'>capybara</a>
+<a href='http://blog.plataformatec.com.br/tag/crafting-rails-applications/' class='tag-link-126' title='3 topics' style='font-size: 11.620689655172pt;'>crafting rails applications</a>
+<a href='http://blog.plataformatec.com.br/tag/devise/' class='tag-link-36' title='10 topics' style='font-size: 16.931034482759pt;'>devise</a>
+
+<a href='http://blog.plataformatec.com.br/tag/elixir/' class='tag-link-143' title='4 topics' style='font-size: 12.827586206897pt;'>elixir</a>
+<a href='http://blog.plataformatec.com.br/tag/engine/' class='tag-link-39' title='3 topics' style='font-size: 11.620689655172pt;'>engine</a>
+<a href='http://blog.plataformatec.com.br/tag/erlang/' class='tag-link-144' title='2 topics' style='font-size: 10.172413793103pt;'>erlang</a>
+<a href='http://blog.plataformatec.com.br/tag/euruko/' class='tag-link-95' title='2 topics' style='font-size: 10.172413793103pt;'>euruko</a>
+<a href='http://blog.plataformatec.com.br/tag/events/' class='tag-link-99' title='3 topics' style='font-size: 11.620689655172pt;'>events</a>
+<a href='http://blog.plataformatec.com.br/tag/form/' class='tag-link-82' title='4 topics' style='font-size: 12.827586206897pt;'>form</a>
+<a href='http://blog.plataformatec.com.br/tag/gems/' class='tag-link-67' title='4 topics' style='font-size: 12.827586206897pt;'>gems</a>
+<a href='http://blog.plataformatec.com.br/tag/generators/' class='tag-link-10' title='3 topics' style='font-size: 11.620689655172pt;'>generators</a>
+<a href='http://blog.plataformatec.com.br/tag/html-5/' class='tag-link-125' title='2 topics' style='font-size: 10.172413793103pt;'>html 5</a>
+
+<a href='http://blog.plataformatec.com.br/tag/http/' class='tag-link-86' title='1 topic' style='font-size: 8pt;'>http</a>
+<a href='http://blog.plataformatec.com.br/tag/i18n/' class='tag-link-58' title='3 topics' style='font-size: 11.620689655172pt;'>i18n</a>
+<a href='http://blog.plataformatec.com.br/tag/inherited_resources/' class='tag-link-24' title='2 topics' style='font-size: 10.172413793103pt;'>inherited_resources</a>
+<a href='http://blog.plataformatec.com.br/tag/memcached/' class='tag-link-25' title='1 topic' style='font-size: 8pt;'>memcached</a>
+<a href='http://blog.plataformatec.com.br/tag/open-source/' class='tag-link-92' title='4 topics' style='font-size: 12.827586206897pt;'>open source</a>
+<a href='http://blog.plataformatec.com.br/tag/plugins/' class='tag-link-23' title='11 topics' style='font-size: 17.413793103448pt;'>plugins</a>
+<a href='http://blog.plataformatec.com.br/tag/rails/' class='tag-link-7' title='28 topics' style='font-size: 22pt;'>rails</a>
+<a href='http://blog.plataformatec.com.br/tag/rails-3/' class='tag-link-115' title='7 topics' style='font-size: 15.241379310345pt;'>rails 3</a>
+<a href='http://blog.plataformatec.com.br/tag/rails-3-1/' class='tag-link-116' title='2 topics' style='font-size: 10.172413793103pt;'>rails 3.1</a>
+
+<a href='http://blog.plataformatec.com.br/tag/railsconf/' class='tag-link-132' title='2 topics' style='font-size: 10.172413793103pt;'>railsconf</a>
+<a href='http://blog.plataformatec.com.br/tag/responders/' class='tag-link-57' title='3 topics' style='font-size: 11.620689655172pt;'>responders</a>
+<a href='http://blog.plataformatec.com.br/tag/respond_with/' class='tag-link-17' title='2 topics' style='font-size: 10.172413793103pt;'>respond_with</a>
+<a href='http://blog.plataformatec.com.br/tag/rest/' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>REST</a>
+<a href='http://blog.plataformatec.com.br/tag/ruby/' class='tag-link-60' title='8 topics' style='font-size: 15.844827586207pt;'>ruby</a>
+<a href='http://blog.plataformatec.com.br/tag/rubyconf/' class='tag-link-117' title='2 topics' style='font-size: 10.172413793103pt;'>rubyconf</a>
+<a href='http://blog.plataformatec.com.br/tag/rvm/' class='tag-link-88' title='2 topics' style='font-size: 10.172413793103pt;'>rvm</a>
+<a href='http://blog.plataformatec.com.br/tag/sanitize/' class='tag-link-119' title='1 topic' style='font-size: 8pt;'>sanitize</a>
+<a href='http://blog.plataformatec.com.br/tag/scalability/' class='tag-link-27' title='1 topic' style='font-size: 8pt;'>scalability</a>
+
+<a href='http://blog.plataformatec.com.br/tag/security-fix/' class='tag-link-124' title='2 topics' style='font-size: 10.172413793103pt;'>security fix</a>
+<a href='http://blog.plataformatec.com.br/tag/show_for/' class='tag-link-79' title='2 topics' style='font-size: 10.172413793103pt;'>show_for</a>
+<a href='http://blog.plataformatec.com.br/tag/simple_form/' class='tag-link-105' title='4 topics' style='font-size: 12.827586206897pt;'>simple_form</a>
+<a href='http://blog.plataformatec.com.br/tag/software/' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>software</a>
+<a href='http://blog.plataformatec.com.br/tag/success/' class='tag-link-14' title='1 topic' style='font-size: 8pt;'>success</a>
+<a href='http://blog.plataformatec.com.br/tag/tests/' class='tag-link-96' title='3 topics' style='font-size: 11.620689655172pt;'>tests</a>
+<a href='http://blog.plataformatec.com.br/tag/the-plataforma-way/' class='tag-link-52' title='2 topics' style='font-size: 10.172413793103pt;'>the plataforma way</a>
+<a href='http://blog.plataformatec.com.br/tag/thor/' class='tag-link-9' title='2 topics' style='font-size: 10.172413793103pt;'>thor</a>
+<a href='http://blog.plataformatec.com.br/tag/unicode/' class='tag-link-32' title='2 topics' style='font-size: 10.172413793103pt;'>unicode</a>
+
+<a href='http://blog.plataformatec.com.br/tag/usability/' class='tag-link-21' title='1 topic' style='font-size: 8pt;'>usability</a>
+<a href='http://blog.plataformatec.com.br/tag/validations/' class='tag-link-20' title='1 topic' style='font-size: 8pt;'>validations</a></div>
+</div></div></div>
+
+
+	<div id="content" role="main">
+          <div class="itemContent" id="post-2166">
+      <div class="topContent"></div>
+      <div class="titleContent">
+        <span class="datetime">16 Jun</span>
+
+        <h2><a href="http://blog.plataformatec.com.br/2011/06/multipart-templates-with-markerb/" rel="bookmark" title="Permalink to Multipart templates with Markerb">Multipart templates with Markerb</a></h2>
+        <small>By <a href="?author=4" title="Posts by José Valim">José Valim</a></small>
+      </div>
+      <div class="contentContent">
+        <p>When writing <a href="http://pragprog.com/titles/jvrails/crafting-rails-applications">Crafting Rails Applications</a>, I knew exactly which parts from Rails I wanted to talk about. However, I didn&#8217;t want the book to simply describe how everything works, I actually wanted everyone to build something useful from each part of Rails.</p>
+
+<p>One of the hardest areas to come up with an useful tool as example was the template handlers. Template handlers are responsible for template compilation and the canonical examples are: ERb and Haml. Obviously, creating something like ERb or Haml from scratch would require a lot of code beyond the Rails integration so it wasn&#8217;t an option. On the other hand, tools that simply render rdoc or markdown templates would be too simple and there are already plenty of gems doing the same out there.</p>
+<p>So I started playing with some options. The first one was something like <a href="https://github.com/markaby/markaby" target="_blank">Why&#8217;s Markaby</a> but that would still require a good amount of code (albeit much less than ERb). Next, <a href="https://gist.github.com/336544" target="_blank">I have played with something called YERb (YAML + ERb)</a> which was an interesting hack but too slow to be of any use. I was almost planning to remove the chapter about template handlers when it finally came to me the idea of <strong>markerb</strong>: markdown + erb (in the book, we did a wordplay and called <strong>merb</strong>). While the idea was simple and easy to implement, it had a great use case: multipart templates.</p>
+<p>With <strong>Markerb</strong>, you can create one template for <strong>ActionMailer</strong> and it will be delivered both as text and HTML. So there is no need to maintain two templates. You write it in markdown, which is delivered as text, but also rendered to be delivered as HTML. Recently, <a href="https://github.com/plataformatec/markerb">I have crafted Markerb in its own gem so everyone can use it</a>.</p>
+
+<h3>How to use?</h3>
+<p>The usage is quite simple. Assuming you have a notifier as below:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;"><span style="color:#9966CC; font-weight:bold;">class</span> Notifier <span style="color:#006600; font-weight:bold;">&lt;</span> <span style="color:#6666ff; font-weight:bold;">ActionMailer::Base</span>
+  <span style="color:#9966CC; font-weight:bold;">def</span> contact<span style="color:#006600; font-weight:bold;">&#40;</span>recipient<span style="color:#006600; font-weight:bold;">&#41;</span>
+
+    <span style="color:#0066ff; font-weight:bold;">@recipient</span> = recipient
+    mail<span style="color:#006600; font-weight:bold;">&#40;</span><span style="color:#ff3333; font-weight:bold;">:to</span> <span style="color:#006600; font-weight:bold;">=&gt;</span> <span style="color:#0066ff; font-weight:bold;">@recipient</span>, <span style="color:#ff3333; font-weight:bold;">:from</span> <span style="color:#006600; font-weight:bold;">=&gt;</span> <span style="color:#996600;">&quot;john.doe@example.com&quot;</span><span style="color:#006600; font-weight:bold;">&#41;</span> <span style="color:#9966CC; font-weight:bold;">do</span> <span style="color:#006600; font-weight:bold;">|</span>format<span style="color:#006600; font-weight:bold;">|</span>
+
+      <span style="color:#CC0066; font-weight:bold;">format</span>.<span style="color:#9900CC;">text</span>
+      <span style="color:#CC0066; font-weight:bold;">format</span>.<span style="color:#9900CC;">html</span>
+    <span style="color:#9966CC; font-weight:bold;">end</span>
+  <span style="color:#9966CC; font-weight:bold;">end</span>
+<span style="color:#9966CC; font-weight:bold;">end</span></pre></div></div>
+
+<p>If you create a template at <code>app/views/notifier/contact.markerb</code>:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="html_rails" style="font-family:monospace;">Multipart templates **rock**, right &lt;%= @recipient %&gt;?!</pre></div></div>
+
+<p>It will generate two parts, one in text and another in HTML when delivered. And that is it! Before we finish, here are a few things you might need to know:</p>
+<ul>
+<li>The &#8220;contact.markerb&#8221; template should not have a format in its name. Adding a format would make it unavailable to be rendered in different formats;
+
+</li>
+<li>The order of the parts matter. It is important for e-mail clients that you call <code>format.text</code> before you call <code>format.html</code>;</li>
+<li>Notice you can normally use ERb inside the template.</li>
+</ul>
+<p>If you are interested in how Markerb, template handlers and other part of Rails work, check out <a href="http://pragprog.com/titles/jvrails/crafting-rails-applications">Crafting Rails Applications</a>. We also hope to add a generator to Devise that will optionally copy all views as Markerb templates to your application.</p>
+<p>And you? Do you have any use cases for <a href="https://github.com/plataformatec/markerb">Markerb</a>? Do you have any other interesting template handlers you would like to share?</p>
+
+        <p class="contentMetaData">
+          Tags: <a href="http://blog.plataformatec.com.br/tag/crafting-rails-applications/" rel="tag">crafting rails applications</a>, <a href="http://blog.plataformatec.com.br/tag/markerb/" rel="tag">markerb</a>, <a href="http://blog.plataformatec.com.br/tag/rails/" rel="tag">rails</a><br /> Posted in <a href="http://blog.plataformatec.com.br/category/english/" title="View all posts in English" rel="category tag">English</a> |   <a href="http://blog.plataformatec.com.br/2011/06/multipart-templates-with-markerb/#respond" title="Comment on Multipart templates with Markerb"><span class="dsq-postid" rel="2166 http://blog.plataformatec.com.br/?p=2166">View Comments</span></a>        </p>
+
+      </div>
+    </div>
+        <div class="itemContent" id="post-2154">
+      <div class="topContent"></div>
+      <div class="titleContent">
+        <span class="datetime">14 Jun</span>
+        <h2><a href="http://blog.plataformatec.com.br/2011/06/elixir-v0-3-0-released/" rel="bookmark" title="Permalink to Elixir v0.3.0 released!">Elixir v0.3.0 released!</a></h2>
+        <small>By <a href="?author=4" title="Posts by José Valim">José Valim</a></small>
+
+      </div>
+      <div class="contentContent">
+        <p>I am happy to announce the fastest and most complete Elixir version yet was just released. In case you don&#8217;t remember, <a href="https://github.com/josevalim/elixir" target="_blank">Elixir is a programming language</a> implemented on top of the Erlang VM with charming syntax, method dispatching and metaprogramming awesomeness. By running on the Erlang VM, Elixir provides a good alternative to build robust and concurrent systems.</p>
+<p>The version v0.3.0 released today provides improvements to the standard library, enhanced method dispatching, anonymous methods and some performance optimizations. You can learn more by <a href="https://github.com/josevalim/elixir/blob/master/CHANGELOG.md" target="_blank">taking a look at the changelog</a>.</p>
+<p>Most of the improvements on this release came as requirements from Frankie. <a href="https://github.com/josevalim/ex_bridge" target="_blank">Frankie is a Sinatra like clone running on Elixir</a> and works as follows:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;"><span style="color:#9966CC; font-weight:bold;">module</span> MyApp
+  mixin <span style="color:#6666ff; font-weight:bold;">Frankie::App</span>
+&nbsp;
+  get <span style="color:#996600;">&quot;/hello_world&quot;</span>, <span style="color:#9966CC; font-weight:bold;">def</span>
+    <span style="color:#996600;">&quot;Hello World&quot;</span>
+  <span style="color:#9966CC; font-weight:bold;">end</span>
+
+<span style="color:#9966CC; font-weight:bold;">end</span>
+&nbsp;
+Frankie.<span style="color:#9900CC;">run</span> <span style="color:#996600;">'mochiweb, MyApp</span></pre></div></div>
+
+<p>In Ruby, Sinatra uses <code>instance_eval</code> to evaluate the block in the application instance context. As we don&#8217;t (and won&#8217;t) have <code>instance_eval</code> in Elixir, we can achieve the same functionality with anonymous methods. Anonymous methods are the same as regular methods except they don&#8217;t need a name. Frankie keeps a reference to the method which later is invoked with <code>MyApp</code> instance.</p>
+
+<p>The performance improvements were also targeted to Frankie. When running on Elixir v0.2.0, Frankie can handle 5500req/s on my machine, but on version v0.3.0, it reaches 9000req/s. You can find more information and <a href="https://gist.github.com/999390" target="_blank">a comparison with other Sinatra-like libraries on this gist</a>.</p>
+<p>Finally, Elixir built-in test suite called <code>ExUnit</code> now runs test cases in parallel for faster results, the methods <code>respond_to?</code>, <code>eval</code> and <code>remove_ivar</code> were added and a new module called <code>Timer</code>, equivalent to <a href="http://www.erlang.org/doc/man/timer.html" target="_blank">Erlang&#8217;s timer</a>, was added in order to provide better benchmarking tools.</p>
+
+<h3>What is next?</h3>
+<p>There is still a lot to be done in Elixir and I feel that releases are getting stable enough for more people to jump in and start having fun! If you want to help (yes!), there are several ways to improve the language, here are a few:</p>
+<ul>
+<li>Help organizing the documentation. The README is quite complete but people complain that it would be better if it was organized into sections. The README would then be just a quick start guide;</li>
+<li>If web development is your thing, you can help us by improving ExBridge and Frankie;</li>
+<li>Build something cool, share it with us and send bug reports.</li>
+</ul>
+<p>Most of all, now we also have an IRC channel on freenode called <code>#elixir-lang</code> where you can hangout, discuss, give feedback and ask questions. You can start now by joining and <a href="https://github.com/josevalim/elixir" target="_blank">following the first steps in the README</a>. So, what are you waiting for?</p>
+
+        <p class="contentMetaData">
+          Tags: <a href="http://blog.plataformatec.com.br/tag/elixir/" rel="tag">elixir</a>, <a href="http://blog.plataformatec.com.br/tag/frankie/" rel="tag">frankie</a>, <a href="http://blog.plataformatec.com.br/tag/sinatra/" rel="tag">sinatra</a><br /> Posted in <a href="http://blog.plataformatec.com.br/category/english/" title="View all posts in English" rel="category tag">English</a> |   <span>Comments Off</span>        </p>
+
+      </div>
+    </div>
+        <div class="itemContent" id="post-2111">
+      <div class="topContent"></div>
+      <div class="titleContent">
+        <span class="datetime">25 May</span>
+        <h2><a href="http://blog.plataformatec.com.br/2011/05/plataformatec-at-railsconf-2011/" rel="bookmark" title="Permalink to PlataformaTec at RailsConf 2011!">PlataformaTec at RailsConf 2011!</a></h2>
+        <small>By <a href="?author=10" title="Posts by Vinicius Baggio">Vinicius Baggio</a></small>
+
+      </div>
+      <div class="contentContent">
+        <p align="center">
+<img class="size-full wp-image-2137 " title="José Valim and Aaron Patterson at RailsConf 2011" src="http://blog.plataformatec.com.br/wp-content/uploads/2011/05/TBe3w.jpg" alt="José Valim and Aaron Patterson at RailsConf 2011" width="480" height="360" /><br />
+<span>José Valim and Aaron Patterson at RailsConf 2011 by <a href="http://twitter.com/j3z_hh">@j3z_hh</a></span>
+</p>
+<p style="text-align: left;">This year me and José Valim had the pleasure of going to Baltimore, in the US, to one of the biggest Rails events of the world! RailsConf is definitely the best place to have the opportunity of meeting and talking to a lot of great Rubyists and Railers, and also attending their talks.</p>
+<p>Not only that, we also participated (though briefly) in BohConf, the official RailsConf unconference, which was great and very well organized! The talks covered a myriad of topics, guided the exploration on some technologies and counted with the presence of the Ruby Mendicant University students. José Valim presented a tutorial on his own <a rel="nofollow" href="https://github.com/josevalim/elixir">Elixir</a>, showing how to build a chat server using some cool stuff that both Elixir and Erlang provide. The code used on the tutorial is available on <a href="https://github.com/josevalim/elixir-websockets-demo">Valim&#8217;s GitHub</a>.</p>
+
+<p>Also, José Valim presented a talk on the ongoing Rails refactoring, guiding through the SOLID Principles and the changes in rails&#8217; own code. You can get the slides at <a href="http://en.oreilly.com/rails2011/public/schedule/detail/19579">his RailsConf page</a>. While you&#8217;re at it, please rate and give your feedback if you watched it live!</p>
+<p>In this edition of RailsConf, DHH presented the &#8220;assets revolution&#8221; part of Rails 3.1 and why CoffeeScript was adopted. It doesn&#8217;t matter if you&#8217;re into CoffeeScript or not, Rails now has amazing internals to deal with assets, raising them as &#8220;first-class citizens&#8221;. You can have this on the latest Release Candidate that was released last week. The keynote is available on <a href="http://www.youtube.com/watch?v=cGdCI2HhfAU">Youtube</a>.</p>
+
+<p>Regarding Keynotes, RailsConf 2011 had amazing ones. I strongly recommend you to watch <a href="http://www.youtube.com/watch?v=IVBVZGfzkVM">Eric Reies&#8217; Lessons Learned</a>, regarding delivering products and learning from your mistakes, from his upcoming book with the same title.</p>
+<p>Tenderlove (or sometimes known as Aaron Patterson) presented a very good talk about database query caching and proposed a future Rails refactoring to restructure the rack middleware stack in order to make it better and faster. A must watch talk! Check it on Youtube: <a href="http://www.youtube.com/watch?=vIVBVZGfzkVM">Aaron Patterson&#8217;s Double Dream Hands: So Intense!</a> (fast forward to minute 40 or so for a surprise)!</p>
+<p>The talks themselves were good, in general. Highlights, in my opinion, are:</p>
+<ul>
+<li><a href="http://en.oreilly.com/rails2011/public/schedule/detail/18051">Aman Gupta&#8217;s Rails Performance Tools</a> was the first time I saw Aman Gupta&#8217;s presentation live. Even though he got his slides from other conferences, I have to say I was very impressed. He really knows what he is talking about and the examples were very applicable to everyday&#8217;s work. You definitely should check it out.</li>
+
+<li><a href="http://en.oreilly.com/rails2011/public/schedule/detail/17762">Jim Weirich and Matt Yoho&#8217;s Securing your rails application</a> began slowly, showing easy-to-avoid security issues, but it picked up nicely, showing live examples on how to replicate the security issues described, very cool!</li>
+<li><a href="http://en.oreilly.com/rails2011/public/schedule/detail/19434">Joe Ferris&#8217; Testing the Impossible</a> was a very good talk. At PlataformaTec we always discuss the best ways to test code and it was very nice to see someone else&#8217;s effort on the subject, I was able to confirm some ideas and learn new ones!</li>
+<li><a href="http://en.oreilly.com/rails2011/public/schedule/detail/18047">Yehuda Katz&#8217; Building Rails Apps For the Rick Client</a> explained why Rails is much more than simple view helpers and then moved on to discuss API implementations. The proposed <a href="https://github.com/drogus/bulk_api">bulk api</a> was particularly interesting and is a good example of a private protocol between the client (SproutCore) and server side (Rails) for advanced transactions and performance!</li>
+
+</ul>
+<p>All in all, it was a great RailsConf! I had a blast, meeting people and having drinks at the parties was also one of the best parts of the conference! And what about you? What is your opinion about RailsConf, did you like it? Which were your favorite talks?</p>
+<p>See you in 2012!</p>
+        <p class="contentMetaData">
+          Tags: <a href="http://blog.plataformatec.com.br/tag/events/" rel="tag">events</a>, <a href="http://blog.plataformatec.com.br/tag/railsconf/" rel="tag">railsconf</a><br /> Posted in <a href="http://blog.plataformatec.com.br/category/english/" title="View all posts in English" rel="category tag">English</a> |   <span>Comments Off</span>        </p>
+
+      </div>
+    </div>
+        <div class="itemContent" id="post-2051">
+      <div class="topContent"></div>
+      <div class="titleContent">
+        <span class="datetime">18 May</span>
+        <h2><a href="http://blog.plataformatec.com.br/2011/05/simpleform-1-4-is-out/" rel="bookmark" title="Permalink to SimpleForm 1.4 is out">SimpleForm 1.4 is out</a></h2>
+        <small>By <a href="?author=15" title="Posts by Rafael França">Rafael França</a></small>
+
+      </div>
+      <div class="contentContent">
+        <p>I&#8217;m pleased to say that we released <a href="https://github.com/plataformatec/simple_form">SimpleForm 1.4</a>. Like the last version, this release had a lot of contributions from the community, closing bugs and adding some nice features. Here is a brief introduction to some of the new features:</p>
+<h3>Custom Form Builders</h3>
+<p>Now you can set a custom form builder that inherits from <code>SimpleForm::FormBuilder</code>:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;"><span style="color:#9966CC; font-weight:bold;">class</span> CustomBuilder <span style="color:#006600; font-weight:bold;">&lt;</span> <span style="color:#6666ff; font-weight:bold;">SimpleForm::FormBuilder</span>
+  <span style="color:#9966CC; font-weight:bold;">def</span> input<span style="color:#006600; font-weight:bold;">&#40;</span>attribute_name, options=<span style="color:#006600; font-weight:bold;">&#123;</span><span style="color:#006600; font-weight:bold;">&#125;</span>, <span style="color:#006600; font-weight:bold;">&amp;</span>block<span style="color:#006600; font-weight:bold;">&#41;</span>
+    options<span style="color:#006600; font-weight:bold;">&#91;</span><span style="color:#ff3333; font-weight:bold;">:input_html</span><span style="color:#006600; font-weight:bold;">&#93;</span>.<span style="color:#9900CC;">merge</span>! :<span style="color:#9966CC; font-weight:bold;">class</span> <span style="color:#006600; font-weight:bold;">=&gt;</span> <span style="color:#996600;">'custom'</span>
+
+    <span style="color:#9966CC; font-weight:bold;">super</span>
+  <span style="color:#9966CC; font-weight:bold;">end</span>
+<span style="color:#9966CC; font-weight:bold;">end</span></pre></div></div>
+
+<p>And use it straight in the <code>simple_form_for</code> helper, like the example below:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;"><span style="color:#006600; font-weight:bold;">&lt;%</span>= simple_form_for<span style="color:#006600; font-weight:bold;">&#40;</span>@user, <span style="color:#ff3333; font-weight:bold;">:builder</span> <span style="color:#006600; font-weight:bold;">=&gt;</span> CustomBuilder<span style="color:#006600; font-weight:bold;">&#41;</span> <span style="color:#9966CC; font-weight:bold;">do</span> <span style="color:#006600; font-weight:bold;">|</span>f<span style="color:#006600; font-weight:bold;">|</span> <span style="color:#006600; font-weight:bold;">%&gt;</span>
+
+  <span style="color:#006600; font-weight:bold;">&lt;%</span>= f.<span style="color:#9900CC;">input</span> <span style="color:#ff3333; font-weight:bold;">:name</span> <span style="color:#006600; font-weight:bold;">%&gt;</span>
+<span style="color:#006600; font-weight:bold;">&lt;%</span> <span style="color:#9966CC; font-weight:bold;">end</span> <span style="color:#006600; font-weight:bold;">%&gt;</span></pre></div></div>
+
+<h3>Custom Inputs</h3>
+
+<p>SimpleForm has many different inputs available in its source code. But, sometimes, depending on the business logic the application requires, we need to add new inputs to make our work easier. Before this version, you had to explicitly define your new input inside SimpleForm namespace for it to work. Furthermore, customizing existing SimpleForm inputs could only be achieved through monkey patching.</p>
+<p>Inspired by a similar feature in the <a href="https://github.com/justinfrench/formtastic">Formtastic</a> gem, from now on you will be able to create new input types inside <code>app/inputs</code> folder in your application. The only restriction to create such inputs is that the class name must end with <code>Input</code>. See some examples:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;"><span style="color:#008000; font-style:italic;"># app/inputs/currency_input.rb</span>
+<span style="color:#9966CC; font-weight:bold;">class</span> CurrencyInput <span style="color:#006600; font-weight:bold;">&lt;</span> <span style="color:#6666ff; font-weight:bold;">SimpleForm::Inputs::StringInput</span>
+
+  <span style="color:#9966CC; font-weight:bold;">def</span> input
+    <span style="color:#996600;">&quot;$ #{super}&quot;</span>.<span style="color:#9900CC;">html_safe</span>
+  <span style="color:#9966CC; font-weight:bold;">end</span>
+<span style="color:#9966CC; font-weight:bold;">end</span></pre></div></div>
+
+<p>And the usage:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;">f.<span style="color:#9900CC;">input</span> <span style="color:#ff3333; font-weight:bold;">:money</span>, <span style="color:#ff3333; font-weight:bold;">:as</span> <span style="color:#006600; font-weight:bold;">=&gt;</span> <span style="color:#ff3333; font-weight:bold;">:currency</span></pre></div></div>
+
+<p>You can also redefine existing SimpleForm inputs by creating a new class with the same name. For instance, if you want to wrap date/time/datetime inputs in a div, you can do:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;"><span style="color:#008000; font-style:italic;"># app/inputs/date_time_input.rb</span>
+
+<span style="color:#9966CC; font-weight:bold;">class</span> DateTimeInput <span style="color:#006600; font-weight:bold;">&lt;</span> <span style="color:#6666ff; font-weight:bold;">SimpleForm::Inputs::DateTimeInput</span>
+  <span style="color:#9966CC; font-weight:bold;">def</span> input
+    <span style="color:#996600;">&quot;&lt;div&gt;#{super}&lt;/div&gt;&quot;</span>.<span style="color:#9900CC;">html_safe</span>
+  <span style="color:#9966CC; font-weight:bold;">end</span>
+
+<span style="color:#9966CC; font-weight:bold;">end</span></pre></div></div>
+
+<h3>HTML 5</h3>
+<p>SimpleForm allows you to add many HTML 5 features to your applications, like placeholders, inline browser validations and more. The problem is: most browsers are still experimenting some HTML 5 features, and people started having lots of troubles with the automatic browser validation.</p>
+<p>For this reason, SimpleForm now has an option to easily disable such form validations. You have to add this line to your SimpleForm initializer:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;">config.<span style="color:#9900CC;">browser_validations</span> = <span style="color:#0000FF; font-weight:bold;">false</span></pre></div></div>
+
+<p>But, if HTML 5 is still not for you, you can disable all the HTML 5 stuff, by adding the configuration below to your initializer:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;">config.<span style="color:#9900CC;">html5</span> = <span style="color:#0000FF; font-weight:bold;">false</span></pre></div></div>
+
+<p>Notice that this option does not disable the `placeholder` component, because we believe this option is very well supported currently in mostly browsers. If you don&#8217;t want to use it as well, just remove it from the `components` option in your initializer.</p>
+<h3>More Helpers</h3>
+<p>In this version we also add two new form helpers to SimpleForm: <code>input_field</code> and <code>full_error</code>.</p>
+
+<p>The <code>full_error</code> helper shows errors in an attribute prepending its human name. This can be used when you want to show errors on hidden fields, for instance. You can see how it works in this example:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;">f.<span style="color:#9900CC;">full_error</span> <span style="color:#ff3333; font-weight:bold;">:token</span> <span style="color:#008000; font-style:italic;">#=&gt; &lt;span class=&quot;error&quot;&gt;Token is invalid&lt;/span&gt;</span></pre></div></div>
+
+<p>The <code>input_field</code> helper renders only the input tag with all the facilities of SimpleForm&#8217;s input helper. It means no wrapper, error or hint will be rendered. A good example of using this helper is inside an input block:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;"><span style="color:#006600; font-weight:bold;">&lt;%</span>= f.<span style="color:#9900CC;">input</span> <span style="color:#ff3333; font-weight:bold;">:max_time</span>, <span style="color:#ff3333; font-weight:bold;">:as</span> <span style="color:#006600; font-weight:bold;">=&gt;</span> :<span style="color:#CC0066; font-weight:bold;">integer</span> <span style="color:#9966CC; font-weight:bold;">do</span> <span style="color:#006600; font-weight:bold;">%&gt;</span>
+
+  <span style="color:#006600; font-weight:bold;">&lt;%</span>= f.<span style="color:#9900CC;">input_field</span> <span style="color:#ff3333; font-weight:bold;">:max_time</span>, <span style="color:#ff3333; font-weight:bold;">:as</span> <span style="color:#006600; font-weight:bold;">=&gt;</span> :<span style="color:#CC0066; font-weight:bold;">integer</span>, <span style="color:#ff3333; font-weight:bold;">:type</span> <span style="color:#006600; font-weight:bold;">=&gt;</span> <span style="color:#ff3333; font-weight:bold;">:range</span> <span style="color:#006600; font-weight:bold;">%&gt;</span>
+
+  <span style="color:#006600; font-weight:bold;">&lt;%</span>= content_tag <span style="color:#ff3333; font-weight:bold;">:span</span>, <span style="color:#996600;">'1'</span>, <span style="color:#ff3333; font-weight:bold;">:id</span> <span style="color:#006600; font-weight:bold;">=&gt;</span> <span style="color:#996600;">'max_time_value'</span> <span style="color:#006600; font-weight:bold;">%&gt;</span>
+<span style="color:#006600; font-weight:bold;">&lt;%</span> <span style="color:#9966CC; font-weight:bold;">end</span> <span style="color:#006600; font-weight:bold;">%&gt;</span></pre></div></div>
+
+<p>It will render:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="html" style="font-family:monospace;">&lt;div class=&quot;input integer required&quot;&gt;
+  &lt;label class=&quot;integer required for=&quot;model_max_time&quot;&gt;Max time &lt;abbr title=&quot;required&quot;&gt;*&lt;/abbr&gt;&lt;/label&gt;
+
+  &lt;input class=&quot;numeric integer required&quot; id=&quot;model_max_time&quot; name=&quot;model[max_time]&quot; required=&quot;required&quot; size=&quot;50&quot; type=&quot;range&quot; /&gt;
+
+  &lt;span id=&quot;max_time_value&quot;&gt;1&lt;/span&gt;
+&lt;/div&gt;</pre></div></div>
+
+<h3>Wrapping up</h3>
+<p>This version allows you to do more customizations in SimpleForm based on your applications needs. We encourage you to take a look at the <a title="SimpleForm Changelog" href="https://github.com/plataformatec/simple_form/blob/master/CHANGELOG.rdoc">CHANGELOG</a> and also review the <a title="SimpleForm Readme" href="https://github.com/plataformatec/simple_form/blob/master/README.rdoc">README</a> to see what else is available and some more examples.</p>
+
+<p>And please, check out <a title="SimpleForm contributors" href="https://github.com/plataformatec/simple_form/contributors">SimpleForm contributors</a>, we want to thank everyone who is helping us to improve SimpleForm.</p>
+<p>Right now, we are working on Rails 3.1 compatibility for the next version. If you feel like helping us or just want to see a new feature, feel free to send us a pull request. And last, but not least, we look forward to know how SimpleForm is changing your life. Is it being helpful? How does it improve your applications? Don&#8217;t be shy, comments are welcome.</p>
+        <p class="contentMetaData">
+          Tags: <a href="http://blog.plataformatec.com.br/tag/form/" rel="tag">form</a>, <a href="http://blog.plataformatec.com.br/tag/gems/" rel="tag">gems</a>, <a href="http://blog.plataformatec.com.br/tag/html-5/" rel="tag">html 5</a>, <a href="http://blog.plataformatec.com.br/tag/open-source/" rel="tag">open source</a>, <a href="http://blog.plataformatec.com.br/tag/rails-3/" rel="tag">rails 3</a>, <a href="http://blog.plataformatec.com.br/tag/simple_form/" rel="tag">simple_form</a><br /> Posted in <a href="http://blog.plataformatec.com.br/category/english/" title="View all posts in English" rel="category tag">English</a> |   <span>Comments Off</span>        </p>
+
+      </div>
+    </div>
+        <div class="itemContent" id="post-2009">
+      <div class="topContent"></div>
+      <div class="titleContent">
+        <span class="datetime">2 May</span>
+        <h2><a href="http://blog.plataformatec.com.br/2011/05/elixir-v0-2-0-released/" rel="bookmark" title="Permalink to Elixir v0.2.0 released!">Elixir v0.2.0 released!</a></h2>
+        <small>By <a href="?author=4" title="Posts by José Valim">José Valim</a></small>
+
+      </div>
+      <div class="contentContent">
+        <p>I&#8217;m pleased to say Elixir v0.2.0 is finally out. In case you missed, <a href="https://github.com/josevalim/elixir" target="_blank">Elixir provides a charming syntax and method dispatching on top of Erlang VM</a>. There is a <a href="https://github.com/josevalim/elixir/blob/v0.2.0/CHANGELOG.md" target="_blank">CHANGELOG</a>, but keep reading if you are interested in more details.</p>
+<h3>Assignments</h3>
+<p>When Elixir was first released, it followed the footsteps of Erlang when it came to assignments. This meant that a variable could not be assigned more than once:</p>
+<pre>x = 1
+% This would raise an exception
+x = 2</pre>
+
+<p>At first, I imagined this restriction was to avoid side effects but it actually has its roots in <a href="http://en.wikipedia.org/wiki/Lambda_calculus" target="_blank">lambda-calculus</a>. In Math, equations like <code>x = x + 1</code> have no satisfiable solution. Does this mean multiple assignments are side effects free? It depends.</p>
+<p>If you have global variables, multiple assignments can clearly introduce side effects. Two threads (or Erlang/Elixir processes) could try to modify the same global variable, leading to race conditions. Another situation where multiple assignments could introduce side effects is in closures. But only if closures are able to change their original binding, as in Ruby:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;">x = <span style="color:#006666;">1</span>
+<span style="color:#006600; font-weight:bold;">&#40;</span><span style="color:#CC0066; font-weight:bold;">lambda</span> <span style="color:#006600; font-weight:bold;">&#123;</span> <span style="color:#006600; font-weight:bold;">|</span>y<span style="color:#006600; font-weight:bold;">|</span> x = y <span style="color:#006600; font-weight:bold;">&#125;</span><span style="color:#006600; font-weight:bold;">&#41;</span>.<span style="color:#9900CC;">call</span><span style="color:#006600; font-weight:bold;">&#40;</span><span style="color:#006666;">2</span><span style="color:#006600; font-weight:bold;">&#41;</span>
+
+x <span style="color:#008000; font-style:italic;">#=&gt; 2</span></pre></div></div>
+
+<p>This could easily lead to race conditions if you are sharing a lambda between threads. Each time a thread executes the lambda, it could change the value of a variable, modifying the behavior of other threads that depend on it.</p>
+<p>That said, in order to have sane multiple assignment in Elixir, we cannot have global variables nor mutable closures, but that is fine as we don&#8217;t have them in Erlang anyway. The following is then possible in Elixir v0.2.0:</p>
+<pre>x = 1
+x = 2
+x = x + 1</pre>
+<p>If you want to match with the value of <strong>x</strong>, you can use:</p>
+
+<pre>x = 1
+% Now this raises an exception
+~x = 2</pre>
+<h3>Updating variables</h3>
+<p>Structures are immutable in Elixir. This adds an important syntax restriction that can be easily explained using some Ruby code:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="ruby" style="font-family:monospace;"><span style="color:#9966CC; font-weight:bold;">class</span> Person
+  <span style="color:#9966CC; font-weight:bold;">def</span> name
+    <span style="color:#0066ff; font-weight:bold;">@name</span>
+  <span style="color:#9966CC; font-weight:bold;">end</span>
+
+&nbsp;
+  <span style="color:#9966CC; font-weight:bold;">def</span> name<span style="color:#006600; font-weight:bold;">&#40;</span>value<span style="color:#006600; font-weight:bold;">&#41;</span>
+    <span style="color:#0066ff; font-weight:bold;">@name</span> = value
+  <span style="color:#9966CC; font-weight:bold;">end</span>
+<span style="color:#9966CC; font-weight:bold;">end</span>
+&nbsp;
+person = Person.<span style="color:#9900CC;">new</span>
+
+person.<span style="color:#9900CC;">name</span><span style="color:#006600; font-weight:bold;">&#40;</span><span style="color:#996600;">&quot;José&quot;</span><span style="color:#006600; font-weight:bold;">&#41;</span>
+person.<span style="color:#9900CC;">name</span> <span style="color:#008000; font-style:italic;">#=&gt; &quot;José&quot;</span></pre></div></div>
+
+<p>In the example above, we define a class called Person, initialize it and set the instance name. The name definition happens by changing the value of the instance variable <strong>@name</strong>. The code above is modifying the existing structure in place.</p>
+<p>In Elixir, however, all structure are immutable. All modifications in one structure needs to necessarily create a new structure. This means that the instance variable assignment expression <code>@name = value</code> should actually return a <strong>new structure</strong>. As it would be awkward for such expression to return a new structure, it was disallowed in the first Elixir release. Particularly, if you wanted to update an structure, you had to use the <strong>update_ivar</strong> method. The code above would be written in Elixir as:</p>
+
+<pre>module Person
+  def name
+    @name
+  end
+
+  def name(value)
+    update_ivar 'name, value
+  end
+end
+
+person = #Person()
+person.name("José")
+person.name %=> "José"</pre>
+<p>This was explicitly a temporary workaround until Elixir provided a better syntax as assigning instance variables is a quite common task. Well, no more workarounds! In Elixir v0.2.0, you can assign instance variables using <code>@()</code> as follow:</p>
+<pre>module Person
+  def name
+    @name
+  end
+
+  def name(value)
+    % Update the attribute given by the atom/symbol 'name
+    @('name, value)
+  end
+end</pre>
+<h3>Compilation and scripting mode</h3>
+<p>In its first release, Elixir was a completely scripted language. For performance, Elixir modules were compiled to Erlang VM right after its definition but this was affecting load time. The language runtime was taking 1.2 seconds to boot, as it had to parse and compile the basic modules in the standard library. Another issue with the scripting approach is that it would make <a href="http://en.wikipedia.org/wiki/Hot_swapping" target="_blank">hot code swapping</a> impossible to implement.</p>
+<p>Due to all these aspects, Elixir now has an explicit compilation time. The current release ships with <strong>elixirc</strong> available to compile files. With an explicit compilation step, Elixir now takes 0.2 seconds to boot and hot code swapping is possible (although needs to be better supported). Even more, Elixir now uses Erlang code server instead of its own, which also introduces the benefit of autoload. Modules are automatically autoloaded, without a need for explicit requires.</p>
+
+<p>One nice aspect of Elixir compilation is that it depends on runtime. It allows us to have all the meta-programming benefits existent in Ruby (which allow you to go much beyond Erlang macros). For example, consider the file <strong>counter.ex</strong> below:</p>
+<pre>module Counter
+  dict = { 'one: 1, 'two: 2, 'three: 3 }
+  dict.each do (key, value)
+    module_eval "def #{key}; #{value}; end"
+  end
+end</pre>
+<p>When we compile the file with <code>elixirc counter.ex -o .</code>, it will execute the code above and dynamically define the methods one, two and three which will return its respective integer values. The compiled <strong>Counter</strong> module would look exactly if it was defined as follows:</p>
+<pre>module Counter
+  def one
+    1
+  end
+
+  def two
+    2
+  end
+
+  def three
+    3
+  end
+end</pre>
+<p>You can verify it by running <strong>iex</strong> (interactive Elixir):</p>
+
+<pre>> Counter.one
+1
+> Counter.two
+2
+> Counter.three
+3</pre>
+<p>In other words, the compilation step simply saves a snapshot of the module after all the code is executed. With all this benefits in mind, the official way to distribute Elixir code is through compiled code, enjoying both improved performance and autoload capabilities.</p>
+<p>However, a scripting language proves to be very convenient in several occasions and it is also available in Elixir. It will run exactly as a compiled file, except modules will need to be parsed and compiled every time you run your script. <a href="https://github.com/josevalim/elixir/" target="_blank">You can read more about it in the README</a>!</p>
+<h3>Other changes</h3>
+<p>There were also several smaller changes and contributions from other developers around the world. New modules were added to the standard library, new methods, and so forth. Also, Elixir had several improvements on performance and smaller ones are still to come in next releases. Finally, expect some new projects that depend on Elixir coming around the corner. Don&#8217;t forget to checkout the <a href="https://github.com/josevalim/elixir/blob/v0.2.0/CHANGELOG.md" target="_blank">CHANGELOG</a>.</p>
+<p>If you want to join the Elixir boat, now is a great opportunity! Grab the <a href="https://github.com/josevalim/elixir/" target="_blank">README</a>, try it out and starting hacking away!</p>
+
+        <p class="contentMetaData">
+          Tags: <a href="http://blog.plataformatec.com.br/tag/elixir/" rel="tag">elixir</a>, <a href="http://blog.plataformatec.com.br/tag/hot-code-swap/" rel="tag">hot code swap</a><br /> Posted in <a href="http://blog.plataformatec.com.br/category/english/" title="View all posts in English" rel="category tag">English</a> |   <span>Comments Off</span>        </p>
+      </div>
+
+    </div>
+        <div class="itemContent" id="post-1985">
+      <div class="topContent"></div>
+      <div class="titleContent">
+        <span class="datetime">27 Apr</span>
+        <h2><a href="http://blog.plataformatec.com.br/2011/04/a-successful-git-branching-model/" rel="bookmark" title="Permalink to A (successful) git branching model">A (successful) git branching model</a></h2>
+        <small>By <a href="?author=12" title="Posts by Rodrigo Flores">Rodrigo Flores</a></small>
+
+      </div>
+      <div class="contentContent">
+        <p><em>*This blog post tells about how we improved a VCS workflow to another one that suited our and the consumer needs. It was a great result: we minimized the chances of occurring one of the worst problems for a developer in a project: big integration while we maintained an &#8216;almost releasable branch&#8217; all the time</em></p>
+<p>In the last months we&#8217;ve been working on a project with a mixed development team (Plataformatec&#8217;s team and the customer&#8217;s team). We, of course, used a version control system (specifically git) and we set up a nice git branching model for our team. As agilists, we know that we should not use anything that requires a lot of bureaucracy (things like opening a ticket to integrate a branch into the trunk).</p>
+<p>Using <a href="http://nvie.com/posts/a-successful-git-branching-model/">nvie guide</a> as base, we developed a git workflow. First of all, we had three main branches:</p>
+
+<ul>
+<li><strong>production</strong>: contains the code that is currently on production. We also have a production server that contains, obviously, the production code up and running.</li>
+<li><strong>staging</strong>: contains the code that is being tested before going to production (we used this branch to deploy to a production-like environment that worked as a final test until production, this environment is also called staging)</li>
+<li><strong>master</strong>: contains the already accepted features. To consider a feature as &#8220;accepted&#8221; we deployed to another environment (called &#8220;dev&#8221;) and asked a QA analyst to test it. Once approved we merged the commits. This &#8220;dev&#8221; environment is used for this kind of approval and also for general purposes like when we say: &#8220;take a look at this new awesome feature we&#8217;re developing&#8221;.</li>
+
+</ul>
+<p>For each feature that we developed, we created a git branch (almost all of them we pushed it to the remote server to facilitate code review and to deploy to the &#8220;dev&#8221; environment). Everyday, we ran <code>git rebase master</code>, to update our branch code (except for features developed by more than one developer). Once the feature is complete, we rebased master into it, and merge it using &#8211;no-ff (to create a merge commit). For the branches that more than one developer worked on, we usually talked and set up a &#8220;rebase period&#8221; where one does the rebase, forces the push (because you changed your local tree so git does not accept it as a non forced push) and updates the remote branch.</p>
+<p>Close to the production deploy, we merged (always using &#8211;no-ff) master branch into staging branch and deploy to staging. Once approved, we merged to production, and created a tag telling the current version of the application and then we do the deploy. When we deployed to production we also removed the merged branches from the remote repository.</p>
+<p>One of the great advantages of this schema is: Master is always &#8220;almost&#8221; ready for a release. Yeah, some features really deserves to be validated right before the deploy, because another feature can break them, but we kept the master as an &#8220;always releasable stable&#8221; branch (and also we used a continuous integration tool in order to enforce all tests passing). Another great advantage is: as we updated our code everyday, it was very unusual for us to face big integration scenarios.</p>
+
+<p>For the &#8220;dev&#8221; environment deploy we also set up a capistrano task that asks which branch we want to deploy to be possible to deploy something from any branch.</p>
+<p>This workflow has worked really well for us and maybe it is useful to you (maybe for you to adapt it to something that works better for you as we did with the workflow suggested on <a href="http://nvie.com/posts/a-successful-git-branching-model/">nvie</a>).</p>
+<p>To summarize, this is our git workflow in commands (supposing that we are on master branch):<br />
+<code><br />
+git checkout -b my-awesome-feature<br />
+# (... you do some code and some commits and you go home to have some sleep or maybe play some starcraft 2 ...)</code></p>
+<p><code>#(arrived at the office on the next day)<br />
+
+git rebase master</code></p>
+<p><code>#(... continue working and commiting and sleeping (or maybe playing some starcraft 2 ...)<br />
+git rebase master</code></p>
+<p><code># (... some commits ... and voila ... you've finished...)<br />
+git push origin my-awesome-feature<br />
+cap dev deploy<br />
+</code></p>
+<p><code># (...YAY!  QA analyst just approved it ...)<br />
+git pull origin master<br />
+
+git rebase master<br />
+</code></p>
+<p><code># (run the tests to ensure all of them pass)<br />
+git checkout master<br />
+git pull --rebase origin master<br />
+git merge --no-ff my-awesome-branch<br />
+git push origin master</code></p>
+<p><code>#(... it is time to validate on staging)<br />
+git checkout staging<br />
+
+git pull origin staging<br />
+git merge --no-ff master<br />
+git push origin staging<br />
+cap staging deploy</code></p>
+<p><code>#(... QA analysts validate the staging ...)<br />
+git checkout production<br />
+git merge --no-ff staging<br />
+git tag -a v1.4.2 -m "Releasing on 13th February"<br />
+git push origin production<br />
+
+git push --tags origin production<br />
+cap production deploy<br />
+</code></p>
+<p>Well, this is how we improved a git workflow based in another one. As almost everything, there is no bullet proof for it, but we found interesting to share this experience with you as it was a success (every developer on the team enjoyed it). But please, we would like to receive some feedback about it <img src='http://blog.plataformatec.com.br/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> . Have you used something similar in your team? Do you have any ideas on how we can improve it?</p>
+        <p class="contentMetaData">
+          Tags: <a href="http://blog.plataformatec.com.br/tag/agile/" rel="tag">Agile</a>, <a href="http://blog.plataformatec.com.br/tag/git/" rel="tag">git</a>, <a href="http://blog.plataformatec.com.br/tag/project/" rel="tag">project</a>, <a href="http://blog.plataformatec.com.br/tag/workflow/" rel="tag">workflow</a><br /> Posted in <a href="http://blog.plataformatec.com.br/category/english/" title="View all posts in English" rel="category tag">English</a> |   <span>Comments Off</span>        </p>
+
+      </div>
+    </div>
+    
+    <div class="contentNavigation">
+      <div class="right"></div>
+      <div class="left"><a href="http://blog.plataformatec.com.br/page/2/" >&laquo; Older Entries</a></div>
+      <div style="clear:left"></div>
+    </div>
+    </div>
+
+  </div>
+
+  <!-- inicio footer -->
+  <div id="footer">
+    <div id="footerBox">
+      <div id="footerText">
+        <a href="http://plataformatec.com.br/">Site</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="http://blog.plataformatec.com.br/">Blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+
+        <a href="http://plataformatec.com.br/en/contact">Contact</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="http://plataformatec.com.br/contato">Contato</a>
+      </div>
+      <div>
+        <div class="footerAddress right">Rua Mourato Coelho 1100 São Paulo - SP  Brasil</div>
+        <div class="footerWeb right"><a href="mailto:contact@plataformatec.com.br">contact@plataformatec.com.br</a></div>
+
+        <div class="footerWeb right">Twitter <a href="http://twitter.com/plataformatec" target="_blank">@plataforma</a></div>
+        <div class="clear"></div>
+      </div>
+      <p class="footerMiniText">Plataforma tecnologia 2011 All rights reserved.</p>
+    </div>
+  </div>
+  <!-- fim footer -->
+
+  </body>
+</html>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk
+Page Caching using disk (enhanced)
+
+Served from: blog.plataformatec.com.br @ 2011-06-30 02:33:05 -->

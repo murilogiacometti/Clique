@@ -1,0 +1,41 @@
+#control-panel {
+	width:20%;
+	height:100%;
+	min-height:400px;
+	float:left;
+}
+
+.panel {
+	background-color:#EFF9E5;
+	border-style:solid;
+	border-color:green;
+	border-width:1px;
+	border-radius: 05px;
+	margin-bottom:10px;
+	padding:3px;
+}
+
+#user-panel { min-height:200px; }
+
+#invite-panel { min-height:100px; }
+
+#invite-panel .panel_details #invite-field{
+	float:center;
+	width:90%;
+	border-radius: 05px;
+}
+
+#invite-message { text-align:center;}
+
+#invite-submit {
+	margin-top:10px; 
+}
+
+#control-panel .panel h4 {background:url("../design/dot-02.gif") 0 50% repeat-x;}
+#control-panel .panel h4 span {margin:20px;}
+#control-panel .panel .panel-img {text-align:center;}
+#control-panel .details p {margin:0;}
+
+#panels {
+	display:inline;
+}
