@@ -32,8 +32,12 @@ public class Person implements Serializable {
     @Column
     protected String name;
 
+    @Column
+    protected Long lastUpdated;
+
+
     @OneToMany(mappedBy = "person")
-    protected Set<InterestPerson> interestPersons = new HashSet<InterestPerson>();
+    protected Set<PersonWord> personWords = new HashSet<PersonWord>();
 
 
 
@@ -47,6 +51,11 @@ public class Person implements Serializable {
 
     public String getName() { return this.name; }
     public void setName(String name) { this.name = name; }
+
+    public Long getLastUpdated() { return this.lastUpdated; }
+    public void setLastUpdated(Long lastUpdated) { 
+        this.lastUpdated = lastUpdated; 
+    }
 
 
     // PERSISTENCE
@@ -84,6 +93,17 @@ public class Person implements Serializable {
 
     // QUERIES
 
+    public static Person findById(Integer id, Session context) {
+        
+        context.beginTransaction();
+        
+        Person person = (Person) context.get(Person.class, id);
+        
+        context.getTransaction().commit();
+
+        return person;
+    }
+
     public static ArrayList<Person> findByName(String name, Session context) {
     
         ArrayList<Person> people = new ArrayList<Person>();
@@ -109,14 +129,14 @@ public class Person implements Serializable {
 
     // RELATIONS
 
-    public void add(Interest interest, Float weight, Session context) {
+    public void add(Word word, Float score, Session context) {
     
-        InterestPerson interestPerson = new InterestPerson();
-        interestPerson.setInterest(interest);
-        interestPerson.setPerson(this);
-        interestPerson.setWeight(weight);
+        PersonWord personWord = new PersonWord();
+        personWord.setWord(word);
+        personWord.setPerson(this);
+        personWord.setScore(score);
 
-        interestPerson.save(context);
+        personWord.save(context);
     
     }
 
@@ -128,9 +148,7 @@ public class Person implements Serializable {
         Session context = HibernateUtil.openContext();
         
         Person person = new Person();
-
         person.setName("Name");
-
         person.save(context);
 
         HibernateUtil.closeContext(context);
