@@ -76,7 +76,6 @@ public class PersonWord implements Serializable {
         Session context = HibernateUtil.openContext();
 
         
-        
         HibernateUtil.closeContext(context);
     
     }

@@ -94,10 +94,7 @@ public class Person implements Serializable {
 
     public static Person findById(Integer id, Session context) {
         
-        context.beginTransaction();
         Person person = (Person) context.get(Person.class, id);
-        context.getTransaction().commit();
-
         return person;
     }
 
@@ -105,16 +102,12 @@ public class Person implements Serializable {
     
         ArrayList<Person> people = new ArrayList<Person>();
 
-        context.beginTransaction();
-
         org.hibernate.Query query = context.getNamedQuery("findByName");
         query.setParameter("name", name);
 
         for (Iterator it = query.iterate(); it.hasNext(); ) {
             people.add((Person) it.next());
         }
-
-        context.getTransaction().commit();
 
         return people;
 
@@ -125,8 +118,6 @@ public class Person implements Serializable {
     
         ArrayList<PersonWord> words = new ArrayList<PersonWord>();
 
-        context.beginTransaction();
-
         org.hibernate.Query query = context.getNamedQuery("getWords");
         query.setParameter("personId", this.id);
         query.setMaxResults(maxResults);
@@ -134,8 +125,6 @@ public class Person implements Serializable {
         for (Iterator it = query.iterate(); it.hasNext(); ) {
             words.add((PersonWord) it.next());
         }
-
-        context.getTransaction().commit();
 
         return words;
 
@@ -154,6 +143,14 @@ public class Person implements Serializable {
     
     }
 
+
+    public ArrayList<Person> findSimilarByWords(ArrayList<Word> words, 
+            int maxResults, Session context) {
+    
+        // SELECIONAR PESSOAS E PONTUACAO PARA AQUELAS PALAVRAS
+        return null;        
+    
+    }
 
     // TESTS
 
@@ -177,11 +174,11 @@ public class Person implements Serializable {
         person.setName("Name");
         person.save(context);
 
-        Word word1 = new Word("word1");
-        Word word2 = new Word("word2");
-        Word word3 = new Word("word3");
-        Word word4 = new Word("word4");
-        Word word5 = new Word("word5");
+        Word word1 = new Word("word1", context);
+        Word word2 = new Word("word2", context);
+        Word word3 = new Word("word3", context);
+        Word word4 = new Word("word4", context);
+        Word word5 = new Word("word5", context);
 
         word1.save(context);
         word2.save(context);

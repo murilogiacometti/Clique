@@ -1,6 +1,7 @@
 package clique.model.core;
 
 import clique.model.util.*;
+import clique.IR.*;
 
 import org.hibernate.*;
 import java.util.*;
@@ -40,37 +41,57 @@ public class Word implements Serializable {
     private Set<PersonWord> personWords = new HashSet();
     
     @ManyToOne(cascade = {CascadeType.PERSIST})
-    @JoinColumn(name = "affixId")
-    private Affix affix;
+    @JoinColumn(name = "stemId")
+    private Stem stem;
 
+    
+    
     public Word() { }
 
-    public Word(String word) { this.word = word; }
+    public Word(String word, Session context) { setWord(word, context); }
 
+
+    
     public Integer getId() { return this.id; }
     private void setId(Integer id) { this.id = id; }
 
     public String getWord() { return this.word; }
-    public void setWord(String word) { 
+    public void setWord(String word, Session context) { 
 
         this.word = word; 
         
-        Affix affix = null;
+        Porter porterAlgorithm = new Porter();
+       
+        // Calculate stem
+        String stemString = porterAlgorithm.stripAffixes(word);
+        
+        // Verify if stem is in database
+        Stem stem = Stem.findByStem(stemString, context);
+        
+        if (stem != null) {
 
-        // Calculate affix
-        // Verify if affix is in database
-        // If yes, load and add
-        // If not, just add and wait for this word to be persisted, so that this affix will be persisted too (CascadeType.Persiste)
+            // If yes, add to word
+            this.stem = stem;
 
+        } else {
+            
+            // If not, persist stem and add to word
+            stem = new Stem(stemString);
+            stem.save(context);
+            this.stem = stem;
+
+        }
     }
 
-    public Affix getAffix() { return this.affix; }
+    public Stem getStem() { return this.stem; }
 
     public String toString() {
         return this.word;
     }
 
 
+    
+    
     public void save(Session context) {
     
         context.beginTransaction();
@@ -95,11 +116,18 @@ public class Word implements Serializable {
     
     }
 
+    public static Word findById(Integer id, Session context) {
+        
+        Word word = (Word) context.get(Word.class, id);
+
+        return word;
+    }
+
+
+
     public ArrayList<PersonWord> getPeople(int maxResults, Session context) {
         
         ArrayList<PersonWord> people = new ArrayList<PersonWord>();
-
-        context.beginTransaction();
 
         org.hibernate.Query query = context.getNamedQuery("getPeople");
 
@@ -107,12 +135,8 @@ public class Word implements Serializable {
         query.setMaxResults(maxResults);
 
         for(Iterator it = query.iterate(); it.hasNext(); ) {
-            
             people.add((PersonWord) it.next());
-        
         }
-
-        context.getTransaction().commit();
 
         return people;
     
@@ -123,18 +147,13 @@ public class Word implements Serializable {
         
         ArrayList<Word> words = new ArrayList<Word>();
         
-        context.beginTransaction();
-
         org.hibernate.Query query = context.getNamedQuery("match");
-        
         query.setParameter("pattern", pattern + "%");
         query.setMaxResults(maxResults);
 
         for (Iterator it = query.iterate(); it.hasNext(); ) {
             words.add((Word) it.next());
         }
-
-        context.getTransaction().commit();
 
         return words;
 
@@ -146,7 +165,7 @@ public class Word implements Serializable {
         Session context = HibernateUtil.openContext();
 
         Word word = new Word();
-        word.setWord("word");
+        word.setWord("word", context);
         word.save(context);
     
         HibernateUtil.closeContext(context);
@@ -163,11 +182,11 @@ public class Word implements Serializable {
         Word word4 = new Word();
         Word word5 = new Word();
         
-        word1.setWord("teste");
-        word2.setWord("testando");
-        word3.setWord("testudo");
-        word4.setWord("intestavel");
-        word5.setWord("amora");
+        word1.setWord("teste", context);
+        word2.setWord("testando", context);
+        word3.setWord("testudo", context);
+        word4.setWord("intestavel", context);
+        word5.setWord("amora", context);
         
         word1.save(context);
         word2.save(context);
@@ -190,9 +209,13 @@ public class Word implements Serializable {
         Session context = HibernateUtil.openContext();
 
         Word word = new Word();
-        word.setWord("teste");
+        word.setWord("testing", context);
         word.save(context);
    
+        Word word2 = new Word();
+        word2.setWord("testable", context);
+        word2.save(context);
+        
         Person person1 = new Person();
         Person person2 = new Person();
         Person person3 = new Person();
