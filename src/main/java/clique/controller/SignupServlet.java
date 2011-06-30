@@ -22,8 +22,12 @@ public class SignupServlet extends HttpServlet {
 		 String facebook = request.getParameter("facebook");
 
 		 Boolean useFacebook = new Boolean(facebook);
-
-	
+		 
+		 if (facebook != null && facebook.equals("true")) {
+			 useFacebook = true;
+		 } else {
+			 useFacebook = false;
+		 }
 
 		 Session context = HibernateUtil.openContext();
 
@@ -35,13 +39,13 @@ public class SignupServlet extends HttpServlet {
 		user.setPassword(typed_password);
 		user.setFacebook(useFacebook);
 
-		System.out.println("1");
 		user.save(context);
-		System.out.println("2");
 
 		HibernateUtil.closeContext(context);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/");
+		session.setAttribute("user", user);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/home");
 		dispatcher.forward(request, response);
 		
 	}

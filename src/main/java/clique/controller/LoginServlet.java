@@ -24,19 +24,17 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
 
 	HibernateUtil.closeContext(context);
 
+	message = "";
 
 	if (user != null) {
 		session.setAttribute("user", user);
-		rd = request.getRequestDispatcher("/main.jsp");
-		rd.forward(request, response);
-	
 	} else {
-		rd = request.getRequestDispatcher("/init.jsp");	
-		rd.forward(request, response);
 		message = "Invalid username or password";
 	}
 
-	request.setAttribute("message", message);
+		request.setAttribute("message", message);
+		rd = request.getRequestDispatcher("/home");
+		rd.forward(request, response);
      }
 
 public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {

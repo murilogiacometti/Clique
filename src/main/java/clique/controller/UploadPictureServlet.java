@@ -37,6 +37,8 @@ public class UploadPictureServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
+
+		System.out.println("Fui chamado!!");
 		
 		User user = (User)  session.getAttribute("user");
 		int id = user.getId();

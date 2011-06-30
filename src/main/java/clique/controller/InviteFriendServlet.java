@@ -13,31 +13,20 @@ class Emailer {
 	private static Properties config = new Properties();
 	private static InputStream is;
 
-	public static void fetchConfig(ServletContext context) {
-		try {
-			is = context.getResourceAsStream("mail.properties");
-			config.load(is);
-
-		} catch (Exception e) {
-			System.out.println("Could not load mail.properties file");
-		}
-
-		if (is != null) {
-			try {
-				is.close();
-			} catch(Exception e) {  }
-		}
+	public static void setConfig() {
+		config.put("mail.smtp.auth", "true");
+		config.put("mail.smtp.starttls.enable", "true");
 	}
 
-	public static void refreshConfig(ServletContext context) {
-		config.clear();
-		fetchConfig(context);
-	}
-
-	public static boolean send(String address, String senderName, ServletContext context) {
-		fetchConfig(context);
+	public static boolean send(String address, String senderName) {
+		setConfig();
 		Session session = Session.getInstance(config);
 		MimeMessage message = new MimeMessage(session);
+
+		String host = "smtp.gmail.com";
+		int port = 587;
+		String username = "cliqueappinviter@gmail.com";
+		String password = "stayconnected";
 
 		try {
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(address));
@@ -49,18 +38,14 @@ class Emailer {
 							"\nThe Clique Team."
 			);
 
-			Transport transport = session.getTransport("smpt");
-			String host = config.getProperty("mail.smtp.host");
-			int port = (new Integer(config.getProperty("mail.smtp.port"))).intValue();
-			String username = config.getProperty("mail.smtp.user");
-			String password = config.getProperty("mail.smtp.password");
-
+			Transport transport = session.getTransport("smtp");
 			transport.connect(host, port, username, password);
 
 			transport.sendMessage(message, message.getAllRecipients());
 			transport.close();
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("Could not send email to "+ address);
 			return false;
 		}
@@ -76,15 +61,13 @@ public class InviteFriendServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		String address = request.getParameter("email");
 
-		ServletContext context = getServletConfig().getServletContext();
-
 		String xmlResponse = "<status><return>";
 
 		if (user == null) {
 			response.sendRedirect("/home");
 		} else {
 			String sender = user.getName();
-			if (Emailer.send(address, sender, context)) {
+			if (Emailer.send(address, sender)) {
 				xmlResponse += "OK</return></status>";
 			} else {
 				xmlResponse += "ERROR</return></status>";
