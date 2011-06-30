@@ -1,4 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ page import="clique.model.core.*" %>
+
+<% User user = (User)session.getAttribute("user"); %>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +16,6 @@
 	<link type="text/css" href="css/south-street/jquery-ui-1.8.14.custom.css" rel="Stylesheet" />	
 	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.14.custom.min.js"></script>
-
 	<script type="text/javascript" src="js/tray.js"></script>
 
     <title>Clique</title>
@@ -21,9 +23,7 @@
 
 <body>
 <div id="main">
-	<jsp:include page="components/header.jsp">
-		<jsp:param name="login" value="false" />
-	</jsp:include>
+	<jsp:include page="components/header.jsp"/>
 
     <div id="col-top"></div>
     <div id="col" class="box">

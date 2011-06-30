@@ -1,9 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ page import="clique.model.core.*" %>
 
-<%
-	//User user  = (User)session.getAttribute("user");
-	//String name = user.getName();
-%>
+<% User user  = (User)session.getAttribute("user"); %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +27,10 @@
 
 <body>
 <div id="main">
-	<jsp:include page="components/header.jsp">
-		<jsp:param name="login" value="false" />
-	</jsp:include>
+	<jsp:include page="components/header.jsp" />
 
 	<div id="picture-dialog">
-		<form name="send-picture-form" method="post" action="upload_picture" enctype="multipart/form-data">
+		<form id="send-picture-form" name="send-picture-form" method="post" action="upload_picture" enctype="multipart/form-data">
 			<label><strong>Picture:</strong></label>
             <input type="file" name="picture" id="picture"/>
 			<h4 id="picture-message">The image must be in one of the following formats: jpeg, gif, png</h4>
@@ -42,25 +39,8 @@
 
     <div id="col-top"></div>
     <div id="col" class="box">
-        <div id="control-panel">
-			<div class="panel" id="user-panel">
-				<h4><span>JOAO!<!----></span></h4>
-			    <div class="panel-img" id="user-img-container"><img src="/clique/download_picture" width="125" height="150" /></div>
-		        <div class="panel_details">
-					interests 
-					interests
-					interests
-					interests
-		        </div> <!-- /col-right-text -->
-			</div>
-	        <div class="panel" id="invite-panel">
-				<h4><span>Invite a friend!</span></h4>
-		        <div class="panel_details">
-					<input id="invite-field" name="email" type="text" value="Type the email here"/>
-					<input type="button" id="invite-submit" value="OK"/>
-					<h5 id="invite-message"></h5>
-		        </div>
-			</div>
+		<div id="panels">
+			<%@ include file="components/side_panel.jsp"%>
 		</div>
     </div> <!-- /col -->
     <div id="col-bottom"></div>

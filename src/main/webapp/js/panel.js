@@ -1,6 +1,15 @@
 $(document).ready(function(){
 	$("#invite-submit").button();
 	
+	$('.panel-img').hover(
+		function() {
+			$(this).css('cursor','pointer');
+		}, 
+		function() {
+			$(this).css('cursor','default');
+		}
+	});
+	
 	//UPLOAD
 	var sendPicture = function() {
 		var pic_name = $("#picture").val();
@@ -51,5 +60,22 @@ $(document).ready(function(){
 		} else {
 			$("#invite-message").html("Not a valid email.").css("color", "red");
 		}
-	})
+	});
+	
+	//FIELD
+	if ($("#invite-field").val() == "Type the email here") {
+		$("#invite-field").css("color", "grey");
+	}
+	$("#invite-field").css("color", "grey");
+
+	$("#invite-field").focus(function(event) {
+		if("Type the email here" == $("#invite-field").val()) {
+			$("#invite-field").attr("value", "").css("color", "black");	
+		}
+	});
+	$("#invite-field").blur(function(event) {
+		if($("#invite-field").val() == "") {
+			$("#invite-field").attr("value", "Type the email here").css("color", "grey");	
+		}
+	});
 });

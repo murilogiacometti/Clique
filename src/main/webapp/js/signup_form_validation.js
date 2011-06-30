@@ -13,9 +13,6 @@ $(document).ready(function(){
 				required: true,
 				equalTo: "#signup_typed_password"
 			}
-		},
-		errorPlacement: function(error, element) {
-			element.parent().parent().children(".message_field").html(error.text());
 		}
 	});
 });
