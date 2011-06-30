@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 
 <%
+ 	User user  = (User)session.getAttribute("user");
 	String message = (String) request.getParameter("message");
 	boolean logged = false;
 	if (user != null) {
