@@ -29,13 +29,21 @@
         <property name="show_sql">false</property>
 
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
 
+<<<<<<< HEAD
         <mapping class="clique.model.core.User" />
         <mapping class="clique.model.core.Person" />
         <mapping class="clique.model.core.Word" />
         <mapping class="clique.model.core.PersonWord" />
         <mapping class="clique.model.core.Affix" />
+=======
+        <mapping class="clique.model.core.User"     />
+        <mapping class="clique.model.core.Person"   />
+        <mapping class="clique.model.core.PersonWord"   />
+        <mapping class="clique.model.core.Word"   />
+        <mapping class="clique.model.core.Affix"   />
+>>>>>>> 7d0e4ec7ec807ab30bf089c434bc04a539ca5c62
 	      
     </session-factory>
 

@@ -45,6 +45,8 @@ public class Word implements Serializable {
 
     public Word() { }
 
+    public Word(String word) { this.word = word; }
+
     public Integer getId() { return this.id; }
     private void setId(Integer id) { this.id = id; }
 
@@ -204,11 +206,11 @@ public class Word implements Serializable {
         person4.save(context);
         person5.save(context);
 
-        person1.add(word, new Float(1.0), context);
-        person2.add(word, new Float(1.0), context);
-        person3.add(word, new Float(1.0), context);
-        person4.add(word, new Float(1.0), context);
-        person5.add(word, new Float(1.0), context);
+        person1.add(word, new Integer(1), context);
+        person2.add(word, new Integer(1), context);
+        person3.add(word, new Integer(1), context);
+        person4.add(word, new Integer(1), context);
+        person5.add(word, new Integer(1), context);
 
         word.merge(context);
 

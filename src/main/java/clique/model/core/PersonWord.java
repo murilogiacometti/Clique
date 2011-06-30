@@ -31,7 +31,8 @@ public class PersonWord implements Serializable {
     private Word word;
 
     @Column
-    private Float score;
+    @OrderBy
+    private Integer score;
 
     public Long getId() { return this.id; }
     private void setId(Long id) { this.id = id; }
@@ -42,8 +43,8 @@ public class PersonWord implements Serializable {
     public Word getWord() { return this.word; }
     public void setWord(Word word) { this.word = word; }
 
-    public Float getScore() { return this.score; }
-    public void setScore(Float score) { this.score = score; }
+    public Integer getScore() { return this.score; }
+    public void setScore(Integer score) { this.score = score; }
     
     
     public void save(Session context) {
