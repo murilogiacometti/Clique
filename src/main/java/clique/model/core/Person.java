@@ -126,7 +126,6 @@ public class Person implements Serializable {
 
     }
 
-
     // RELATIONS
 
     public void add(Word word, Float score, Session context) {

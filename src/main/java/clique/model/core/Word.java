@@ -15,8 +15,13 @@ import java.sql.*;
 @NamedQueries({
 
     @NamedQuery(
+        name = "getPeople", 
+        query = "SELECT person FROM Person person JOIN person.personWords association JOIN association.word word WHERE word.id = :wordId"
+    ),
+
+    @NamedQuery(
         name = "match", 
-        query = "SELECT w FROM Word w WHERE w.word LIKE :pattern"
+        query = "SELECT word FROM Word word WHERE word.word LIKE :pattern"
     ) 
 
 })
@@ -83,15 +88,24 @@ public class Word implements Serializable {
     
     }
 
-    public ArrayList<Person> getPeople(int maxResults) {
+    public ArrayList<Person> getPeople(int maxResults, Session context) {
         
         ArrayList<Person> people = new ArrayList<Person>();
 
-        for(Iterator it = personWords.iterator(); it.hasNext(); ) {
+        context.beginTransaction();
+
+        org.hibernate.Query query = context.getNamedQuery("getPeople");
+
+        query.setParameter("wordId", this.id);
+        query.setMaxResults(maxResults);
+
+        for(Iterator it = query.iterate(); it.hasNext(); ) {
             
-            people.add(((PersonWord) it.next()).getPerson());
+            people.add((Person) it.next());
         
         }
+
+        context.getTransaction().commit();
 
         return people;
     
@@ -132,90 +146,90 @@ public class Word implements Serializable {
     
     }
 
-   // private static void unitTest2() {
-   //     
-   //     Session context = HibernateUtil.openContext();
+    private static void unitTest2() {
+        
+        Session context = HibernateUtil.openContext();
 
-   //     Word word1 = new Word();
-   //     Word word2 = new Word();
-   //     Word word3 = new Word();
-   //     Word word4 = new Word();
-   //     Word word5 = new Word();
-   //     
-   //     word1.setWord("teste");
-   //     word2.setWord("testando");
-   //     word3.setWord("testudo");
-   //     word4.setWord("intestavel");
-   //     word5.setWord("amora");
-   //     
-   //     word1.save(context);
-   //     word2.save(context);
-   //     word3.save(context);
-   //     word4.save(context);
-   //     word5.save(context);
-   // 
-   //     ArrayList<Word> words = Word.match("test", 10, context);
+        Word word1 = new Word();
+        Word word2 = new Word();
+        Word word3 = new Word();
+        Word word4 = new Word();
+        Word word5 = new Word();
+        
+        word1.setWord("teste");
+        word2.setWord("testando");
+        word3.setWord("testudo");
+        word4.setWord("intestavel");
+        word5.setWord("amora");
+        
+        word1.save(context);
+        word2.save(context);
+        word3.save(context);
+        word4.save(context);
+        word5.save(context);
+    
+        ArrayList<Word> words = Word.match("test", 10, context);
 
-   //     for (int word = 0; word < words.size(); word++) {
-   //         System.out.println(words.get(word).getWord());
-   //     }
+        for (int word = 0; word < words.size(); word++) {
+            System.out.println(words.get(word).getWord());
+        }
 
-   //     HibernateUtil.closeContext(context);
-   // 
-   // }
+        HibernateUtil.closeContext(context);
+    
+    }
 
-   // private static void unitTest3() {
-   // 
-   //     Session context = HibernateUtil.openContext();
+    private static void unitTest3() {
+    
+        Session context = HibernateUtil.openContext();
 
-   //     Word word = new Word();
-   //     word.setWord("teste");
-   //     word.save(context);
-   //
-   //     Person person1 = new Person();
-   //     Person person2 = new Person();
-   //     Person person3 = new Person();
-   //     Person person4 = new Person();
-   //     Person person5 = new Person();
+        Word word = new Word();
+        word.setWord("teste");
+        word.save(context);
+   
+        Person person1 = new Person();
+        Person person2 = new Person();
+        Person person3 = new Person();
+        Person person4 = new Person();
+        Person person5 = new Person();
 
-   //     person1.setName("Person 1");
-   //     person2.setName("Person 2");
-   //     person3.setName("Person 3");
-   //     person4.setName("Person 4");
-   //     person5.setName("Person 5");
+        person1.setName("Person 1");
+        person2.setName("Person 2");
+        person3.setName("Person 3");
+        person4.setName("Person 4");
+        person5.setName("Person 5");
 
-   //     person1.add(word, new Float(1.0), context);
-   //     person2.add(word, new Float(1.0), context);
-   //     person3.add(word, new Float(1.0), context);
+        person1.save(context);
+        person2.save(context);
+        person3.save(context);
+        person4.save(context);
+        person5.save(context);
 
-   //     person1.save(context);
-   //     person2.save(context);
-   //     person3.save(context);
-   //     person4.save(context);
-   //     person5.save(context);
+        person1.add(word, new Float(1.0), context);
+        person2.add(word, new Float(1.0), context);
+        person3.add(word, new Float(1.0), context);
+        person4.add(word, new Float(1.0), context);
+        person5.add(word, new Float(1.0), context);
 
-   //     person4.add(word);
-   //     person5.add(word);
+        word.merge(context);
 
-   //     ArrayList<Person> people = word.getPeople(10);
+        ArrayList<Person> people = word.getPeople(10, context);
 
-   //     for (int word = 0; word < words.size(); word++) {
-   //         System.out.println(words.get(word).getWord());
-   //     }
+        for (int person = 0; person < people.size(); person++) {
+            System.out.println(people.get(person).getName());
+        }
 
-   //     HibernateUtil.closeContext(context);
-   // 
-   // 
-   // }
+        HibernateUtil.closeContext(context);
+    
+    }
     
     private static void unitTest4() {}
     private static void unitTest5() {}
 
     public static void main(String args[]) {
     
-        unitTest1();
+        //unitTest1();
         //unitTest2();
-        //unitTest3();
+        unitTest3();
         //unitTest4();
         //unitTest5();
     

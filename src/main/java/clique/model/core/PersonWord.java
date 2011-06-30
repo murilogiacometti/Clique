@@ -22,11 +22,11 @@ public class PersonWord implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqId")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "personId")
     private Person person;
     
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "wordId")
     private Word word;
 
