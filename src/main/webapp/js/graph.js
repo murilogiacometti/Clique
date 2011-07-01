@@ -190,13 +190,13 @@
 			url: "interest_graph",
 			/*context: sys,*/
 			dataType: "xml",
-      data: "id=" /*+usuario*/,
+      		data: "max=8&id=" /*+usuario*/,
 			success: function(xml){
 				$(xml).find('edge').each( function(){	
 					var node = {}
 					node["nodeName"] = $(this).find("id");
 					node["data"]["type"] = "person";
-					node["data"]["interests"] = node["data"]["interests"]?node["data"]["interests"].push($(this).find("interest").text()):[];
+					node["data"]["interests"] = node["data"]["interests"] ? node["data"]["interests"].push($(this).find("interest").text()) : [];
 					nodes[$(this).find("id")] = node;
 					
 					sys.addNode($(this).find("id").text(), {type:"person", name:$(this).find("name").text()});

@@ -28,7 +28,7 @@
 <div id="tray">
 	<!-- SEARCH -->
 	<div id="search" class="box">
-	    <form action="query" method="get">
+	    <form action="/clique/search" method="get">
 	        <div class="box">
 	            <div id="search-input"><span class="noscreen">Search:</span><input type="text" size="30" name="query" id="search_field" value="search" /></div>
 	            <div id="search-submit"><input type="submit" value="Seach" /></div>

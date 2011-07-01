@@ -21,6 +21,9 @@ $(document).ready(function(){
 		},
 		minLength: 2
 	});
+	
+	$("#interest-submit").button();
+	
 	$("#interest-submit").click(function() {
 		$.ajax({
 			async: false,
