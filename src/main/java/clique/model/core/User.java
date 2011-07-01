@@ -41,8 +41,9 @@ public class User extends Person {
     private Boolean facebook;
 
 
-
-    public User() { }
+    public User() { 
+        this.isUser = true;
+    }
 
     // GETTER's and SETTER's
 
