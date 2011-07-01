@@ -20,10 +20,9 @@ public class AddInterestServlet extends HttpServlet {
 			String wordString = request.getParameter("words");
 			int  relevance = Integer.parseInt(request.getParameter("relevancias"));
 			
-			Word word = new Word(wordString);
-			
 			Session context = HibernateUtil.openContext();
 			
+			Word word = new Word(wordString,context);
 			word.save(context);
 			user.add(word,new Integer(relevance),context);
 			user.merge(context);
