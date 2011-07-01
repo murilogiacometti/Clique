@@ -21,18 +21,18 @@ import clique.model.util.*;
     ),
     
     @NamedQuery(
-        name = "getWords", 
+        name = "getMostPopularWords", 
         query = "SELECT word FROM PersonWord word JOIN word.person person WHERE person.id = :personId ORDER BY word.score DESC"
-    ),
-
-    @NamedQuery(
-        name = "findAssociationByWord",
-        query = "SELECT association FROM PersonWord association JOIN association.person WHERE association.word = :word"
     ),
 
     @NamedQuery(
         name = "countPeople",
         query = "SELECT MAX(person.id) FROM Person person"
+    ),
+
+    @NamedQuery(
+        name = "findAssociationByWord",
+        query = "SELECT association FROM PersonWord association JOIN association.person WHERE association.word = :word"
     )
 
 })
@@ -50,13 +50,17 @@ public class Person implements Serializable {
     @Column
     protected Long lastUpdated;
 
+    @Column
+    protected Boolean isUser;
 
     @OneToMany(mappedBy = "person")
     protected Set<PersonWord> personWords = new HashSet<PersonWord>();
 
 
 
-    public Person() {}
+    public Person() {
+        this.isUser = false;
+    }
 
 
     // GET's and SET's
@@ -71,6 +75,8 @@ public class Person implements Serializable {
     public void setLastUpdated(Long lastUpdated) { 
         this.lastUpdated = lastUpdated; 
     }
+
+    public Boolean isUser() { return this.isUser; }
 
 
     // PERSISTENCE
@@ -141,13 +147,13 @@ public class Person implements Serializable {
      * ordered by highest scores.
      *
      * @param maxResults Maximum number of results retrieved.
-     **/
+     */
     public ArrayList<PersonWord> getMostPopularWords(
             int maxResults, Session context) {
     
         ArrayList<PersonWord> words = new ArrayList<PersonWord>();
 
-        org.hibernate.Query query = context.getNamedQuery("getWords");
+        org.hibernate.Query query = context.getNamedQuery("getMostPopularWords");
         query.setParameter("personId", this.id);
         query.setMaxResults(maxResults);
 
@@ -158,6 +164,7 @@ public class Person implements Serializable {
         return words;
 
     }
+
 
     /**
      * Find tuples with Person-Word-Score whose Person is self and tuples 
@@ -174,7 +181,7 @@ public class Person implements Serializable {
         // Calculate initial element of page based on total size
         int initialElement = pageNumber * pageSize;
         
-        org.hibernate.Query query = context.getNamedQuery("getWords");
+        org.hibernate.Query query = context.getNamedQuery("getMostPopularWords");
         query.setParameter("categoryId", this.id);
 
         // STARTING FROM initialElement WITH pageSize ELEMENTS
@@ -230,8 +237,7 @@ public class Person implements Serializable {
             queryFind.setParameter("word", words.get(word));
 
             PersonWord personWord = null;
-
-            // For each person with that word
+         // For each person with that word
             for(Iterator it = queryFind.iterate(); it.hasNext(); ) {
                 personWord = (PersonWord) it.next();
                 
@@ -425,6 +431,67 @@ public class Person implements Serializable {
     
     }
 
+
+    public static void unitTest4() {
+        
+        Session context = HibernateUtil.openContext();
+
+        Person person1 = new Person();
+        person1.setName("Fabio");
+        person1.save(context);
+
+        Person person2 = new Person();
+        person2.setName("Murilo");
+        person2.save(context);
+        
+        Person person3 = new Person();
+        person3.setName("Rafael");
+        person3.save(context);
+        
+        Person person4 = new Person();
+        person4.setName("Renato");
+        person4.save(context);
+        
+        Word word1 = new Word("Linux", context);
+        Word word2 = new Word("Mac", context);
+        Word word3 = new Word("Windows", context);
+        Word word4 = new Word("IE", context);
+        Word word5 = new Word("Firefox", context);
+        Word word6 = new Word("Safari", context);
+        Word word7 = new Word("Chrome", context);
+        
+        word1.save(context);
+        word2.save(context);
+        word3.save(context);
+        word4.save(context);
+        word5.save(context);
+        word6.save(context);
+        word7.save(context);
+        
+        person1.add(word1, new Integer(20), context);
+        person1.add(word2, new Integer(20), context);
+        person1.add(word3, new Integer(30), context);
+        person1.add(word5, new Integer(50), context);
+
+        person2.add(word1, new Integer(80), context);
+        person2.add(word2, new Integer(20), context);
+        person2.add(word3, new Integer(15), context);
+        person2.add(word5, new Integer(10), context);
+        person2.add(word7, new Integer(40), context);
+
+        person3.add(word1, new Integer(80), context);
+        person3.add(word2, new Integer(100), context);
+        person3.add(word3, new Integer(5), context);
+        person3.add(word6, new Integer(20), context);
+        person3.add(word7, new Integer(20), context);
+
+        person4.add(word1, new Integer(50), context);
+        person4.add(word2, new Integer(50), context);
+        
+       
+        
+    
+    }
 
     public static void main(String args[]) {
 
