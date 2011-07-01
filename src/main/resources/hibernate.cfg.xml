@@ -31,11 +31,11 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping class="clique.model.core.User"     />
-        <mapping class="clique.model.core.Person"   />
-        <mapping class="clique.model.core.PersonWord"   />
-        <mapping class="clique.model.core.Word"   />
-        <mapping class="clique.model.core.Affix"   />
+        <mapping class="clique.model.core.User" />
+        <mapping class="clique.model.core.Person" />
+        <mapping class="clique.model.core.Word" />
+        <mapping class="clique.model.core.PersonWord" />
+        <mapping class="clique.model.core.Stem"   />
 	      
     </session-factory>
 

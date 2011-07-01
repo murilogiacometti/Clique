@@ -1,6 +1,7 @@
 package clique.model.core;
 
 import clique.model.util.*;
+import clique.IR.*;
 
 import org.hibernate.*;
 import java.util.*;
@@ -15,8 +16,13 @@ import java.sql.*;
 @NamedQueries({
 
     @NamedQuery(
+        name = "getPeople", 
+        query = "SELECT person FROM PersonWord person JOIN person.word word WHERE word.id = :wordId ORDER BY person.score DESC"
+    ),
+
+    @NamedQuery(
         name = "match", 
-        query = "SELECT w FROM Word w WHERE w.word LIKE :pattern"
+        query = "SELECT word FROM Word word WHERE word.word LIKE :pattern"
     ) 
 
 })
@@ -35,30 +41,57 @@ public class Word implements Serializable {
     private Set<PersonWord> personWords = new HashSet();
     
     @ManyToOne(cascade = {CascadeType.PERSIST})
-    @JoinColumn(name = "affixId")
-    private Affix affix;
+    @JoinColumn(name = "stemId")
+    private Stem stem;
 
+    
+    
     public Word() { }
 
+    public Word(String word, Session context) { setWord(word, context); }
+
+
+    
     public Integer getId() { return this.id; }
     private void setId(Integer id) { this.id = id; }
 
     public String getWord() { return this.word; }
-    public void setWord(String word) { 
+    public void setWord(String word, Session context) { 
 
         this.word = word; 
         
-        Affix affix = null;
+        Porter porterAlgorithm = new Porter();
+       
+        // Calculate stem
+        String stemString = porterAlgorithm.stripAffixes(word);
+        
+        // Verify if stem is in database
+        Stem stem = Stem.findByStem(stemString, context);
+        
+        if (stem != null) {
 
-        // Calculate affix
-        // Verify if affix is in database
-        // If yes, load and add
-        // If not, just add and wait for this word to be persisted, so that this affix will be persisted too (CascadeType.Persiste)
+            // If yes, add to word
+            this.stem = stem;
 
+        } else {
+            
+            // If not, persist stem and add to word
+            stem = new Stem(stemString);
+            stem.save(context);
+            this.stem = stem;
+
+        }
     }
 
-    public Affix getAffix() { return this.affix; }
+    public Stem getStem() { return this.stem; }
 
+    public String toString() {
+        return this.word;
+    }
+
+
+    
+    
     public void save(Session context) {
     
         context.beginTransaction();
@@ -83,14 +116,33 @@ public class Word implements Serializable {
     
     }
 
-    public ArrayList<Person> getPeople(int maxResults) {
+    public static Word findById(Integer id, Session context) {
         
-        ArrayList<Person> people = new ArrayList<Person>();
+        Word word = (Word) context.get(Word.class, id);
+        return word;
+    }
 
-        for(Iterator it = personWords.iterator(); it.hasNext(); ) {
-            
-            people.add(((PersonWord) it.next()).getPerson());
+    public static Word findByWord(String wordString, Session context) {
+
+        Word word = null;
+        //org.hibernate.Query query = context.getNamedQuery("getPeople");
+
+        return null;
+    }
+
+
+
+    public ArrayList<PersonWord> getPeople(int maxResults, Session context) {
         
+        ArrayList<PersonWord> people = new ArrayList<PersonWord>();
+
+        org.hibernate.Query query = context.getNamedQuery("getPeople");
+
+        query.setParameter("wordId", this.id);
+        query.setMaxResults(maxResults);
+
+        for(Iterator it = query.iterate(); it.hasNext(); ) {
+            people.add((PersonWord) it.next());
         }
 
         return people;
@@ -102,18 +154,13 @@ public class Word implements Serializable {
         
         ArrayList<Word> words = new ArrayList<Word>();
         
-        context.beginTransaction();
-
         org.hibernate.Query query = context.getNamedQuery("match");
-        
         query.setParameter("pattern", pattern + "%");
         query.setMaxResults(maxResults);
 
         for (Iterator it = query.iterate(); it.hasNext(); ) {
             words.add((Word) it.next());
         }
-
-        context.getTransaction().commit();
 
         return words;
 
@@ -125,97 +172,101 @@ public class Word implements Serializable {
         Session context = HibernateUtil.openContext();
 
         Word word = new Word();
-        word.setWord("word");
+        word.setWord("word", context);
         word.save(context);
     
         HibernateUtil.closeContext(context);
     
     }
 
-   // private static void unitTest2() {
-   //     
-   //     Session context = HibernateUtil.openContext();
+    private static void unitTest2() {
+        
+        Session context = HibernateUtil.openContext();
 
-   //     Word word1 = new Word();
-   //     Word word2 = new Word();
-   //     Word word3 = new Word();
-   //     Word word4 = new Word();
-   //     Word word5 = new Word();
-   //     
-   //     word1.setWord("teste");
-   //     word2.setWord("testando");
-   //     word3.setWord("testudo");
-   //     word4.setWord("intestavel");
-   //     word5.setWord("amora");
-   //     
-   //     word1.save(context);
-   //     word2.save(context);
-   //     word3.save(context);
-   //     word4.save(context);
-   //     word5.save(context);
-   // 
-   //     ArrayList<Word> words = Word.match("test", 10, context);
+        Word word1 = new Word();
+        Word word2 = new Word();
+        Word word3 = new Word();
+        Word word4 = new Word();
+        Word word5 = new Word();
+        
+        word1.setWord("teste", context);
+        word2.setWord("testando", context);
+        word3.setWord("testudo", context);
+        word4.setWord("intestavel", context);
+        word5.setWord("amora", context);
+        
+        word1.save(context);
+        word2.save(context);
+        word3.save(context);
+        word4.save(context);
+        word5.save(context);
+    
+        ArrayList<Word> words = Word.match("test", 10, context);
 
-   //     for (int word = 0; word < words.size(); word++) {
-   //         System.out.println(words.get(word).getWord());
-   //     }
+        for (int word = 0; word < words.size(); word++) {
+            System.out.println(words.get(word).getWord());
+        }
 
-   //     HibernateUtil.closeContext(context);
-   // 
-   // }
+        HibernateUtil.closeContext(context);
+    
+    }
 
-   // private static void unitTest3() {
-   // 
-   //     Session context = HibernateUtil.openContext();
+    private static void unitTest3() {
+    
+        Session context = HibernateUtil.openContext();
 
-   //     Word word = new Word();
-   //     word.setWord("teste");
-   //     word.save(context);
-   //
-   //     Person person1 = new Person();
-   //     Person person2 = new Person();
-   //     Person person3 = new Person();
-   //     Person person4 = new Person();
-   //     Person person5 = new Person();
+        Word word = new Word();
+        word.setWord("testing", context);
+        word.save(context);
+   
+        Word word2 = new Word();
+        word2.setWord("testable", context);
+        word2.save(context);
+        
+        Person person1 = new Person();
+        Person person2 = new Person();
+        Person person3 = new Person();
+        Person person4 = new Person();
+        Person person5 = new Person();
 
-   //     person1.setName("Person 1");
-   //     person2.setName("Person 2");
-   //     person3.setName("Person 3");
-   //     person4.setName("Person 4");
-   //     person5.setName("Person 5");
+        person1.setName("Person 1");
+        person2.setName("Person 2");
+        person3.setName("Person 3");
+        person4.setName("Person 4");
+        person5.setName("Person 5");
 
-   //     person1.add(word, new Float(1.0), context);
-   //     person2.add(word, new Float(1.0), context);
-   //     person3.add(word, new Float(1.0), context);
+        person1.save(context);
+        person2.save(context);
+        person3.save(context);
+        person4.save(context);
+        person5.save(context);
 
-   //     person1.save(context);
-   //     person2.save(context);
-   //     person3.save(context);
-   //     person4.save(context);
-   //     person5.save(context);
+        person1.add(word, new Integer(21), context);
+        person2.add(word, new Integer(2), context);
+        person3.add(word, new Integer(3), context);
+        person4.add(word, new Integer(4), context);
+        person5.add(word, new Integer(15), context);
 
-   //     person4.add(word);
-   //     person5.add(word);
+        word.merge(context);
 
-   //     ArrayList<Person> people = word.getPeople(10);
+        ArrayList<PersonWord> people = word.getPeople(10, context);
 
-   //     for (int word = 0; word < words.size(); word++) {
-   //         System.out.println(words.get(word).getWord());
-   //     }
+        for (int person = 0; person < people.size(); person++) {
+            System.out.println(people.get(person).getPerson().getName());
+        }
 
-   //     HibernateUtil.closeContext(context);
-   // 
-   // 
-   // }
+        HibernateUtil.closeContext(context);
+    
+    }
     
     private static void unitTest4() {}
     private static void unitTest5() {}
 
     public static void main(String args[]) {
     
-        unitTest1();
+        //unitTest1();
         //unitTest2();
-        //unitTest3();
+        unitTest3();
         //unitTest4();
         //unitTest5();
     
