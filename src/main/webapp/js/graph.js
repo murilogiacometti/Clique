@@ -68,7 +68,7 @@
 					var w = 30;
 					if (node.data.type == "person") {
 						img = new Image();
-						img.src = 'images/fabio1.gif';
+						img.src = "download_picture?id="+node.data.id;
 						ctx.drawImage(img, pt.x-img.width/2, pt.y-img.height/2);
 					} else {
 						var word = node.data.desc;
@@ -190,7 +190,7 @@
 			url: "interest_graph",
 			/*context: sys,*/
 			dataType: "xml",
-      		data: "max=8&id=1" /*+usuario*/,
+      		data: "max=8&id="+$("#id").val(),
 			success: function(xml){
 				$(xml).find('edge').each( function(){	
 					var node = {}
@@ -202,7 +202,7 @@
 					node["data"]["interests"] = node["data"]["interests"] ? node["data"]["interests"].push($(this).find("interest").text()) : [];
 					nodes[$(this).find("id")] = node;
 					
-					sys.addNode($(this).find("id").text(), {type:"person", name:$(this).find("name").text()});
+					sys.addNode($(this).find("id").text(), {id:$(this).find("id").text(), type:"person", name:$(this).find("name").text()});
 					sys.addNode($(this).find("interest").text(), {desc:$(this).find("interest").text(), type:"interest"});
 					sys.addEdge($(this).find("id").text(), $(this).find("interest").text());				
 				});

@@ -43,6 +43,13 @@
 			<h4 id="picture-message">The image must be in one of the following formats: jpeg, gif, png</h4>
 		</form>
 	</div>
+	
+	<%
+		Integer id;
+		User user = (User)session.getAttribute("user");
+		id = user.getId();
+	%>
+	<input id="id" type="hidden" value="<%= id %>"/>
 
     <div id="col-top"></div>
     <div id="col" class="box">

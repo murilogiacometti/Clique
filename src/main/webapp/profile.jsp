@@ -36,6 +36,12 @@
 <div id="main">
 	<jsp:include page="components/header.jsp" />
 
+	<%
+		String id = request.getAttribute("id");
+	%>
+	<input id="id" type="hidden" value="<%= id %>"/>
+
+
     <div id="col-top"></div>
     <div id="col" class="box">
 		<div id="panels">
