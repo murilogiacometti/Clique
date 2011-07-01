@@ -79,6 +79,16 @@
 	<url-pattern>/invite</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>FetchDataServlet</servlet-name>
+	<servlet-class>clique.controller.FetchDataServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>FetchDataServlet</servlet-name>
+	<url-pattern>/fetchData</url-pattern>
+  </servlet-mapping>
+
 
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

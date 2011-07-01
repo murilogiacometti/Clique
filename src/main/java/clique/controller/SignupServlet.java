@@ -45,7 +45,7 @@ public class SignupServlet extends HttpServlet {
 
 		session.setAttribute("user", user);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/home");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("fetchData");
 		dispatcher.forward(request, response);
 		
 	}

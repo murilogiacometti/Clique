@@ -1,0 +1,5 @@
+Baixar o Classifier em:
+https://maven.atlassian.com/content/repositories/atlassian-3rdparty/classifier4j/classifier4j/0.6/classifier4j-0.6.jar
+
+Executar o comando:
+mvn install:install-file -Dfile=classifier4j-0.6.jar -DgroupId=net.sf.classifier4J -DartifactId=classifier4J -Dversion=1.6 -Dpackaging=jar
