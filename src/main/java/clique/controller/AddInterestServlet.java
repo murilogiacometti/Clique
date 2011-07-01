@@ -18,17 +18,24 @@ public class AddInterestServlet extends HttpServlet {
 
 			User user = (User) session.getAttribute("user");
 			String wordString = request.getParameter("words");
-			int  relevance = Integer.parseInt(request.getParameter("relevancias"));
+			String  relevance = request.getParameter("relevances");
+		
+			String[] words = wordString.split(",");
+				
+			String[] relevances = relevance.split(",");
 			
 			Session context = HibernateUtil.openContext();
 			
-			Word word = new Word(wordString,context);
-			word.save(context);
-			user.add(word,new Integer(relevance),context);
-			user.merge(context);
+			for (int i = 0; i < words.length; i++){
+				Word word = new Word(words[i],context);
+				word.save(context);
+				user.add(word,new Integer(Integer.parseInt(relevances[i])),context);
+				user.merge(context);
+			}
 
 			HibernateUtil.closeContext(context);			
-				
+			
+
 
 	}
 
