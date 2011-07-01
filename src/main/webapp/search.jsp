@@ -61,7 +61,7 @@
 			<%
 				ArrayList<Person> users = (ArrayList<Person>)request.getAttribute("users");
 				for(int i = 0; i < users.size(); i++) {
-					ArrayList<PersonWord> words = users.get(i).getMostPopularWords(5, true, context);
+					ArrayList<PersonWord> words = users.get(i).getMostPopularWords(5, context);
 				%>
 					<div class="interest_item">
 						<div class="search_img">
@@ -84,7 +84,7 @@
 			<%
 				ArrayList<Person> people = (ArrayList<Person>)request.getAttribute("people");
 				for(int i = 0; i < people.size(); i++) {
-					ArrayList<PersonWord> words = people.get(i).getMostPopularWords(5, false, context);
+					ArrayList<PersonWord> words = people.get(i).getMostPopularWords(5, context);
 			%>
 					<div class="interest_item">
 						<div class="search_img">

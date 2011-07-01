@@ -41,12 +41,16 @@
 		<h4> Click the word related with you!</h4>
 		<div id="tag-cloud">
 		<%
-			ArrayList<PersonWord> interests = (ArrayList<PersonWord>)request.getAttribute("interests");
-			for(int i = 0; i < interests.size(); i++) {
+			HashMap interests = (HashMap)request.getAttribute("interests");
+			Set keys = interests.keySet();
+			Iterator i = keys.iterator();
+			while(i.hasNext()) {
+				String key = (String) (((Map.Entry) i.next()).getKey());
+				int value = ((Integer) interests.getKey(key)).intValue();
 		%>
-			<span class="interest-word" id="score<%= interests.get(i).getScore()%>">
-				<%= interests.get(i).getWord()%>
-				<input class="relevance-field" type="hidden" value="<%= interests.get(i).getScore() %>"/>
+			<span class="interest-word" id="score<%= value %>">
+				<%= key %>
+				<input class="relevance-field" type="hidden" value="<%= value %>"/>
 			</span>
 			<!--<span class="interest-word score6">javascript</span>
 				<span class="interest-word score8">bottom</span>
