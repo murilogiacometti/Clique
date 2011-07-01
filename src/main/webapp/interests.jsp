@@ -45,11 +45,15 @@
 		<div id="interest-search">
 			<div id="interest_query" class="ui-widget">
 				<h1 id="interest_label">Type your interests!</h1>
-				<form method="post" action="add_interest">
-					<input name="query" id="interest_input"/>
-					<input id="interest-submit" type="submit" value="Add"/>
-				</form>
-			</div>				
+				<input name="query" id="interest_input"/>
+				<input id="interest-submit" type="button" value="Add"/>
+			</div>
+			<div id="interest-div">
+				<div id="interest-relevance">
+					<span>Set the relevance:</span>
+					<div id="relevance"></div>
+				</div>
+			</div>
 		</div>		
     </div> <!-- /col -->
     <div id="col-bottom"></div>

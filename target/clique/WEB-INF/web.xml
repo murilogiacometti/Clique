@@ -1,0 +1,88 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+ <web-app id="/clique">
+  <display-name>Clique</display-name>
+  
+  <servlet>	
+   <servlet-name>IndexServlet</servlet-name>
+   <servlet-class>clique.controller.IndexServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>	
+   <servlet-name>IndexServlet</servlet-name>
+   <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>IndexServlet</welcome-file>
+  </welcome-file-list>
+
+ <servlet>	
+   <servlet-name>LoginServlet</servlet-name>
+   <servlet-class>clique.controller.LoginServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>	
+   <servlet-name>LoginServlet</servlet-name>
+   <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+	<servlet-class>clique.controller.LogoutServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+
+ <servlet>	
+   <servlet-name>SignupServlet</servlet-name>
+   <servlet-class>clique.controller.SignupServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>	
+   <servlet-name>SignupServlet</servlet-name>
+   <url-pattern>/signup</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DownloadPictureServlet</servlet-name>
+	<servlet-class>clique.controller.DownloadPictureServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>DownloadPictureServlet</servlet-name>
+	<url-pattern>/download_picture</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UploadPictureServlet</servlet-name>
+	<servlet-class>clique.controller.UploadPictureServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>UploadPictureServlet</servlet-name>
+	<url-pattern>/upload_picture</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>InviteFriendServlet</servlet-name>
+	<servlet-class>clique.controller.InviteFriendServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>InviteFriendServlet</servlet-name>
+	<url-pattern>/invite</url-pattern>
+  </servlet-mapping>
+
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+
+</web-app>

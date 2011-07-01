@@ -3,6 +3,7 @@
 	min-height:500px;
 	height:100%;
 	float:right;
+	text-align:center;
 }
 
 #interest_input {
@@ -13,4 +14,11 @@
 #interest_query {
 	width:100%;
 	text-align:center;
+}
+
+#interest-relevance {
+	margin-top:10px;
+	width:300px;
+	position:relative;
+	left:210px;
 }

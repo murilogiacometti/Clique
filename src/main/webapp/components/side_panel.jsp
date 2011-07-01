@@ -7,6 +7,7 @@
 			interests
 			interests
 			interests
+			<a href="/clique/add_interests.jsp">add a interest</a>
         </div> <!-- /col-right-text -->
 	</div>
     <div class="panel" id="invite-panel">
@@ -14,6 +15,7 @@
         <div class="panel_details">
 			<input id="invite-field" name="email" type="text" value="Type the email here"/>
 			<input type="button" id="invite-submit" value="OK"/>
+			<img  id="loading" src="design/loading.gif" width="15px" height="15px" hidden/>
 			<h5 id="invite-message"></h5>
         </div>
 	</div>

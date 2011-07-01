@@ -1,0 +1,48 @@
+.search {
+	color:green;
+	margin:5px;
+	background-color:#EFF9E5;
+	border-radius: 10px;
+	margin-bottom:10px;
+	padding:3px;
+}
+
+.interest_item {
+	border-bottom-color:green;
+	border-bottom-width:1px;
+	border-bottom-style:solid;;
+	padding:10px;	
+}
+
+.search_img {
+	float:left;
+}
+
+.search_name {
+	color: green;
+	
+	padding-left:10px;
+	float:left;
+}
+
+.search_interest {
+	color: green;
+	padding-left:10px;
+}
+
+.search span {
+	padding:10px;
+}
+
+a.interest-link {
+	text-decoration: none;
+	color: green;
+}
+
+#interest_search {
+	text-align:center;
+}
+
+.search-title {
+	color:green;
+}
