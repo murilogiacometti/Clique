@@ -14,6 +14,7 @@
         <div class="panel_details">
 			<input id="invite-field" name="email" type="text" value="Type the email here"/>
 			<input type="button" id="invite-submit" value="OK"/>
+			<img  id="loading" src="design/loading.gif" width="15px" height="15px" hidden/>
 			<h5 id="invite-message"></h5>
         </div>
 	</div>

@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	$("#invite-submit").button();
+	$("#loading").hide();	
+	$("#invite-message").hide();
 	
 	$('.panel-img').hover(
 		function() {
@@ -41,20 +43,24 @@ $(document).ready(function(){
 	
 	//INVITE
 	$("#invite-submit").click(function(event) {
+		$("#invite-message").hide();
 		var email = $("#invite-field").val();
-		if (email.match(/.+@.+[.].+/)) {	
+		if (email.match(/.+@.+[.].+/)) {
+			$("#loading").show();	
 			$.ajax({
-			   	type: "POST",
-				url: "invite",
+			  type: "POST",
+				url: "add_interest",
 				dataType: "xml",
-               	data: "email=" + email,
+        data: "email=" + email,
 			   	success: function(xml){
-					var status = $(xml).find('status').text();
-					if (status == "OK") {
-						$("#invite-message").html("Invitation sent!").css("color", "green");			   
-					} else {
-						$("#invite-message").html("An error ocurred, please try again.").css("color", "red");			   
-					}
+						var status = $(xml).find('status').text();
+						if (status == "OK") {
+							$("#invite-message").html("Invitation sent!").css("color", "green");			   
+						} else {
+							$("#invite-message").html("An error ocurred, please try again.").css("color", "red");			   
+						}
+						$("#loading").hide();
+						$("#invite-message").show();
 				}
 			});
 		} else {

@@ -1,5 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ page import="clique.model.core.*" %>
+<%@ page import="java.util.*" %>
+
 
 <% User user  = (User)session.getAttribute("user"); %>
 
@@ -46,9 +48,28 @@
     <div id="col" class="box">
 		<div id="panels">
 			<%@ include file="components/side_panel.jsp"%>
-			<canvas width="800" height="600"id="graph">
-
-			</canvas>
+			<canvas width="700" height="525"id="graph"></canvas>
+			<div id="relations">
+			<%
+				ArrayList<Person> people = (ArrayList) request.getAttribute("people");
+				if (people != null) 
+					for(int i = 0; i < people.size(); i++) {
+			%>
+					<a href="/clique/profile?id=<%=people.get(i).getId()%>">
+						<img class="relation" width="45" height="55" src="/clique/download_picture?id=<%= people.get(i).getId() %>"/>
+					</a>
+			<%  
+					}
+			%>
+				<!--<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />-->
+			</div>
 		</div>
     </div> <!-- /col -->
     <div id="col-bottom"></div>

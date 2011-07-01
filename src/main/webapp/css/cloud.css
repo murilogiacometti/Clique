@@ -1,0 +1,53 @@
+#col h1, #col h4 {
+	text-align:center;
+}
+
+#col h1 {
+	font-size:30px;
+}
+
+#tag-cloud {
+	text-align:center;
+}
+
+.interest-word {
+	color:green;
+	margin:5px;
+}
+
+.selected-interest-word {
+	color:green;
+	margin:5px;
+	background-color:#EFF9E5;
+	border-style:solid;
+	border-color:green;
+	border-width:1px;
+	border-radius: 10px;
+	margin-bottom:10px;
+	padding:3px;
+}
+
+.score10 {
+	font-size:60px
+}
+.score9 {
+	font-size:50px
+}
+.score8 {
+	font-size:40px
+}
+.score7 {
+	font-size:30px
+}
+.score6 {
+	font-size:20px
+}
+
+#register-words-div {
+	text-align: center;
+	display:block;
+}
+#register-words  {
+	text-align: center;
+}
+

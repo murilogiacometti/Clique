@@ -1,7 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ page import="clique.model.core.*" %>
+<%@ page import="java.util.*" %>
 
-% User user  = (User)session.getAttribute("user"); %
+
+<% User user  = (User)session.getAttribute("user"); %>
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +17,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/start_signup_form.css" />
     <link rel="stylesheet" type="text/css" href="css/panel.css" />
+    <link rel="stylesheet" type="text/css" href="css/graph.css" />
 
 	<link type="text/css" href="css/south-street/jquery-ui-1.8.14.custom.css" rel="Stylesheet" />	
 	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
@@ -44,15 +47,34 @@
     <div id="col-top"></div>
     <div id="col" class="box">
 		<div id="panels">
-			%@ include file="components/side_panel.jsp"%
-			<canvas id="graph">
-
-			</canvas>
+			<%@ include file="components/side_panel.jsp"%>
+			<canvas width="700" height="525"id="graph"></canvas>
+			<div id="relations">
+			<%
+				ArrayList<Person> people = (ArrayList) request.getAttribute("people");
+				if (people != null) 
+					for(int i = 0; i < people.size(); i++) {
+			%>
+					<a href="'/clique/profile?id=<%=people.get(i).getId()%>">
+						<img class="relation" width="45" height="55" src="/clique/download_picture?id=<%= people.get(i).getId() %>">
+					</a>
+			<%  
+					}
+			%>
+				<!--<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />
+				<img class="relation" src="/clique/download_picture?id=<%= user.getId() %>" width="45" height="55" />-->
+			</div>
 		</div>
     </div> <!-- /col -->
     <div id="col-bottom"></div>
     <hr class="noscreen" />
-	%@ include file="components/footer.jsp"%
+	<%@ include file="components/footer.jsp"%>
 </div> <!-- /main -->
 </body>
 </html>

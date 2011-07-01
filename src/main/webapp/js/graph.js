@@ -1,9 +1,18 @@
 (function($){
+	var nodes = {};
 
   var Renderer = function(canvas){
-    var canvas = $(canvas).get(0)
+		var interests = {};
+	  var dom = $(canvas);
+    var canvas = $(canvas).get(0);
     var ctx = canvas.getContext("2d");
-    var particleSystem
+    var particleSystem;
+
+    var _vignette = null;
+    var selected = null,
+        nearest = null,
+        _mouseP = null;
+
 
     var that = {
 	
@@ -52,55 +61,84 @@
           ctx.lineTo(pt2.x, pt2.y);
           ctx.stroke();
 		 			ctx.fillStyle = "#ffffff"; // text color
-		
-		 			ctx.beginPath();
-					ctx.arc((pt1.x + pt2.x)/2,(pt1.y + pt2.y)/2,20,0,Math.PI*2,true);
-				  ctx.closePath();
-				  ctx.stroke();
-				  ctx.fill();
-
-					ctx.fillStyle = "#0000ff"; // text color
-					ctx.font = "bold 20px sans-serif";
-					ctx.fillText("relacao", (pt1.x + pt2.x)/2, (pt1.y + pt2.y)/2);  
 
         })
         particleSystem.eachNode(function(node, pt){
-					var img = new Image();
-					img.src = 'images/fabio.gif';
-          var w = 50;
+					var img;
+					var w = 30;
+					if (node.data.type == "person") {
+						img = new Image();
+						img.src = 'images/fabio1.gif';
+						ctx.drawImage(img, pt.x-img.width/2, pt.y-img.height/2);
+					} else {
+						var word = node.data.desc;
+						ctx.fillStyle = "rgba(124,252,0,1)"
+	
+						ctx.font = "bold 20px sans-serif";
+						var i = ctx.measureText(word.replace(/\s/g, "\u0020"));          
+	
+						ctx.beginPath();
+						ctx.fillRect(pt.x - i.width/2 - 20, pt.y, i.width + 35,w)
+					  ctx.closePath();
+					  ctx.stroke();
+					  ctx.fill();
 
-					//img.onload = function(){
-					    ctx.drawImage(img, pt.x-img.width/2, pt.y-img.height/2);
-					//};
-          // node: {mass:#, p:{x,y}, name:"", data:{}}
-          // pt:   {x:#, y:#}  node position in screen coords
-
-          // draw a rectangle centered at pt
-          //ctx.fillStyle = (node.data.alone) ? "orange" : "rgba(124,252,0,1)"
-          //ctx.fillRect(pt.x-w/2, pt.y-w/2, w,w)
+						ctx.fillStyle = "#0000ff"; // text color					
+						ctx.fillText(word, pt.x-i.width/2, pt.y+20);
+						
+					}
         })    			
       },
       
       initMouseHandling:function(){
         // no-nonsense drag and drop (thanks springy.js)
         var dragged = null;
-
+		
         // set up a handler object that will initially listen for mousedowns then
         // for moves and mouseups while dragging
         var handler = {
-          clicked:function(e){
+					moved:function(e){
+						var i;
             var pos = $(canvas).offset();
             _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
+            nearest = particleSystem.nearest(_mouseP);
+
+           if (!nearest.node) return false
+
+           selected = (nearest.distance < 50 && nearest.node.data.type == "person") ? nearest : null
+           if (selected){
+           }
+           else{
+
+           }
+            
+            return false
+          },
+          clicked:function(e){
+						var i;
+            var pos = $(canvas).offset();
+            _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
+            nearest = particleSystem.nearest(_mouseP);
             dragged = particleSystem.nearest(_mouseP);
 
-            if (dragged && dragged.node !== null){
-              // while we're dragging, don't let physics move the node
-              dragged.node.fixed = true
-            }
+           	if (!nearest.node) return false
 
+           	selected = (nearest.distance < 50 && nearest.node.data.type == "person") ? nearest : null
+
+           //se arrastar nao acessar
+						if (selected && selected.node.data.type == "person"){
+							window.location = '/clique/init.jsp';
+						} else {
+           		window.location = '/clique/main.jsp';
+						}
+	
+            // while we're dragging, don't let physics move the node
+      		  nearest.node.fixed = true
+
+ 						$(canvas).unbind('mousemove', handler.moved);
             $(canvas).bind('mousemove', handler.dragged)
             $(window).bind('mouseup', handler.dropped)
-
+												
             return false
           },
    
@@ -121,6 +159,8 @@
             if (dragged.node !== null) dragged.node.fixed = false
             dragged.node.tempMass = 1000
             dragged = null
+
+            $(canvas).bind('mousemove', handler.moved);
             $(canvas).unbind('mousemove', handler.dragged)
             $(window).unbind('mouseup', handler.dropped)
             _mouseP = null
@@ -130,6 +170,7 @@
         
         // start listening
         $(canvas).mousedown(handler.clicked);
+        $(canvas).bind('mousemove', handler.moved);
 
       },
       
@@ -139,31 +180,43 @@
   }    
 
   $(document).ready(function(){
+		var i, j;
     var sys = arbor.ParticleSystem(1000, 600, 0.5) // create the system with sensible repulsion/stiffness/friction
     sys.parameters({gravity:true}) // use center-gravity to make the graph settle nicely (ymmv)
     sys.renderer = Renderer("#graph") // our newly created renderer will have its .init() method called shortly by sys...
 
-    // add some nodes to the graph and watch it go...
-    sys.addEdge('a','b')
-    sys.addEdge('a','c')
-    sys.addEdge('a','d')
-    sys.addEdge('a','e')
-
-    // or, equivalently:
-    //
-    // sys.graft({
-    //   nodes:{
-    //     f:{alone:true, mass:.25}
-    //   }, 
-    //   edges:{
-    //     a:{ b:{},
-    //         c:{},
-    //         d:{},
-    //         e:{}
-    //     }
-    //   }
-    // })
-    
+		$.ajax({
+			type: "POST",
+			url: "interest_graph",
+			/*context: sys,*/
+			dataType: "xml",
+      data: "id=" /*+usuario*/,
+			success: function(xml){
+				$(xml).find('edge').each( function(){	
+					var node = {}
+					node["nodeName"] = $(this).find("id");
+					node["data"]["type"] = "person";
+					node["data"]["interests"] = node["data"]["interests"]?node["data"]["interests"].push($(this).find("interest").text()):[];
+					nodes[$(this).find("id")] = node;
+					
+					sys.addNode($(this).find("id").text(), {type:"person", name:$(this).find("name").text()});
+					sys.addNode($(this).find("interest").text(), {type:"interest"});									
+					sys.addEdge($(this).find("id").text(), $(this).find("interest").text());				
+				});
+			}
+		});		
   })
+})(this.jQuery);
 
-})(this.jQuery)
+/*
+	<edges>
+		<edge>
+			<person>
+				<name>nome</name>
+				<id>1234654</id>
+			</person>
+			<interest>palavra</interest>
+		</edge>
+	</edges>
+
+*/

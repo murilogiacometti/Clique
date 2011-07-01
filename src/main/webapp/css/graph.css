@@ -1,4 +1,14 @@
 #graph {
-	min-width:100%;
-	min-height:100%;
+	min-width:75%;
+	float:right;
+}
+
+#relations {
+	min-width:75%;
+	float:right;
+	display:inline-block;
+}
+
+.relation {
+	margin-left:20px;
 }
