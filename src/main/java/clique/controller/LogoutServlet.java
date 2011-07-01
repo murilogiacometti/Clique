@@ -17,7 +17,7 @@ public class LogoutServlet extends HttpServlet {
 		   System.out.println("Could not invalidate session");
 	   }
 
-	   response.sendRedirect("/home");
+	   response.sendRedirect("home");
 	}
 
 
