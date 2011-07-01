@@ -10,8 +10,7 @@ import clique.model.util.*;
 
 @Entity
 @Table(
-    name = "PeopleWords",
-    uniqueConstraints = { @UniqueConstraint(columnNames = {"personId", "wordId"}) }
+    name = "PeopleWords"
 )
 @SequenceGenerator(name = "seqId", sequenceName = "seqPersonWordId")
 

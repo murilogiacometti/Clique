@@ -35,18 +35,18 @@ public class InterestGraphServlet extends HttpServlet {
 				ArrayList<PersonWord> user_interest_relevance = user.getMostPopularWords(number_max,context);
 
 				for (int i = 0; i < user_interest_relevance.size(); i++){
-					
+
 					people = user_interest_relevance.get(i).getWord().getPeople(number_max,context);
 					number_people = people.size();
+					interest = user_interest_relevance.get(i).getWord().getWord();
+					System.out.println("NUMBER OF PEOPLE FOR THAT INTEREST:" + number_people);
 					
-					for (int j = 0; j < number_people; j++){
-						
+					for (int j = 0; j < number_people; j++){	
 						relevance = people.get(j).getScore();
 						name = people.get(j).getPerson().getName();
-						interest = user_interest_relevance.get(j).getWord().getWord();
 						id_people = people.get(j).getPerson().getId();	
 
-						if (id_people != id_people) {
+						if (id_user != id_people) {
 							xml += "<edge><person> <name>" + name + "</name>";
 							xml += "<id>" + id_people + "</id></person>";
 							xml += "<interest>" + interest + "</interest>";
@@ -74,7 +74,8 @@ public class InterestGraphServlet extends HttpServlet {
 				e.printStackTrace();
 				System.out.println("No valid parameters given: 	" + request.getParameter("id") + ", " + request.getParameter("max"));
 			}
-			
+
+			System.out.println(xml);
 			response.setContentType("application/xml");
 			response.getWriter().write(xml);
 

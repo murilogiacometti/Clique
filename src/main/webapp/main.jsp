@@ -46,7 +46,6 @@
 	
 	<%
 		Integer id;
-		User user = (User)session.getAttribute("user");
 		id = user.getId();
 	%>
 	<input id="id" type="hidden" value="<%= id %>"/>

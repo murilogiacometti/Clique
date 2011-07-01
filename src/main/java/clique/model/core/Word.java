@@ -16,7 +16,7 @@ import java.sql.*;
 @NamedQueries({
 
     @NamedQuery(
-        name = "findWord", 
+        name = "findByWord", 
         query = "SELECT word FROM Word word WHERE word.word = :word"
     ),
 
@@ -45,7 +45,7 @@ public class Word implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqId")
     private Integer id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String word;
 
     @OneToMany(mappedBy = "word")
@@ -69,9 +69,10 @@ public class Word implements Serializable {
     public String getWord() { return this.word; }
     public void setWord(String word, Session context) { 
 
-        this.word = word; 
+	 
+        this.word = word;
         
-        Porter porterAlgorithm = new Porter();
+	Porter porterAlgorithm = new Porter();
        
         // Calculate stem
         String stemString = porterAlgorithm.stripAffixes(word);
@@ -105,10 +106,16 @@ public class Word implements Serializable {
     
     public void save(Session context) {
     
-        context.beginTransaction();
-        context.save(this);
-        context.getTransaction().commit();
-  
+	Word wordFound = Word.findByWord(this.word, context);
+    	if (wordFound != null) {
+	    
+	    this.id = wordFound.getId();
+
+       	} else {
+   	     context.beginTransaction();
+             context.save(this);
+             context.getTransaction().commit();
+	}
     }
 
     public void merge(Session context) {
