@@ -1,0 +1,104 @@
+<project name="hibernate-tutorial" default="compile">
+
+    <property name="configDir"     value="${basedir}/config" />
+    <property name="librariesDir"  value="${basedir}/lib"    />
+
+    <property name="targetDir" value="${basedir}/build" />
+    <property name="warDir"    value="${basedir}/war"   />
+    <property name="warFile"   value="build.war"        />
+
+    <path id="libraries">
+        <fileset dir="${librariesDir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+
+    <!-- WAR -->
+
+    <target name="war" depends="compile">
+      
+        <!-- Create directories -->
+      
+        <delete dir="${warDir}"/>
+
+        <mkdir dir="${warDir}"/>
+        <mkdir dir="${warDir}/WEB-INF"/>
+        <mkdir dir="${warDir}/WEB-INF/classes"/>
+        <mkdir dir="${warDir}/WEB-INF/lib" />
+
+        <!-- Copy configuration files -->
+        <copy todir="${warDir}/WEB-INF/classes" >
+            <fileset dir="${configDir}" includes="hibernate.*" /> 
+        </copy>
+
+        <!-- Copy libraries -->
+        
+        <copy todir="${warDir}/WEB-INF/lib">
+            <fileset dir="${librariesDir}" includes="**/*.*" /> 
+        </copy>
+
+        <!-- Se nao remover essas duas APIs ao fazer deployment o servidor WEB dah pau de compilacao dos JSPs e Servlets -->
+  	    <delete file="${warDir}/WEB-INF/lib/servlet-api.jar"/>
+        <delete file="${warDir}/WEB-INF/lib/jsp-api.jar"/>
+
+        <!-- Copy all compiled classes (models and controllers) -->
+        <copy todir="${warDir}/WEB-INF/classes">
+            <fileset dir="${targetDir}" includes="**/*.*" /> 
+        </copy>
+
+        <!-- Copy views -->
+        <copy todir="${warDir}">
+            <fileset dir="${viewDir}" includes="**/*.*" /> 
+        </copy>
+
+        <!-- Create war file and place in ear directory -->
+        <jar jarfile="${basedir}/${warFile}" basedir="${warDir}" />
+
+    </target>
+
+
+
+    <!-- CLEAN -->
+
+    <target name="clean">
+        <delete dir="${targetDir}"/>
+        <mkdir dir="${targetDir}"/>
+    </target>
+
+
+
+    <!-- COMPILE -->
+
+    <target name="compile" depends="clean, copy-resources">
+        <javac 
+            srcdir="${basedir}/clique"
+            destdir="${targetDir}"
+            classpathref="libraries"
+        />
+    </target>
+
+
+    <!-- COPY CLASS FILES TO BUILD -->
+
+    <target name="copy-resources">
+      
+        <mkdir dir="${targetDir}/clique" />
+        <copy todir="${targetDir}/clique">
+            <fileset dir="clique">
+                <exclude name="**/*.java" />
+            </fileset>
+          </copy>
+   </target>
+
+
+    <!-- RUN -->
+
+    <target name="run" depends="compile">
+        <java fork="true" classname="clique.model.Word" classpathref="libraries">
+          <classpath path="${targetDir}:." />
+          <arg value="${action}" />
+        </java>
+    </target>
+
+</project>

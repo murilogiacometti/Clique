@@ -1,0 +1,13 @@
+<service>
+    
+    <parameter name="SignUp" locked="false">SignUp</parameter>
+
+    <operation name="directSignUp">
+        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+    
+    <operation name="indirectSignUp">
+        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+
+</service>
