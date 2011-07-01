@@ -119,8 +119,15 @@ public class Word implements Serializable {
     public static Word findById(Integer id, Session context) {
         
         Word word = (Word) context.get(Word.class, id);
-
         return word;
+    }
+
+    public static Word findByWord(String wordString, Session context) {
+
+        Word word = null;
+        //org.hibernate.Query query = context.getNamedQuery("getPeople");
+
+        return null;
     }
 
 
