@@ -30,7 +30,7 @@ $(document).ready(function(){
 		  	type: "POST",
 			url: "add_interest",
 			dataType: "xml",
-    		data: "words=" + req.term + "&relevances=" + relevance,
+    		data: "words=" + $("#interest_input").val() + "&relevances=" + relevance,
 		  	success: function(xml) {
 				window.location = '/clique/main.jsp';
 			 }
@@ -39,7 +39,7 @@ $(document).ready(function(){
 	
 	$( "#relevance" ).slider({ value:5, min: 0, max: 10, step: 1,
 		stop: function( event, ui ) {
-			relevance = $( ".selector" ).slider( "option", "value" );
+			relevance = ui.value;//$( ".selector" ).slider( "option", "value" );
 		}
 	});
 });

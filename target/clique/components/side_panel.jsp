@@ -7,6 +7,7 @@
 			interests
 			interests
 			interests
+			<a href="/clique/add_interests.jsp">add a interest</a>
         </div> <!-- /col-right-text -->
 	</div>
     <div class="panel" id="invite-panel">

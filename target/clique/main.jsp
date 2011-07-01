@@ -55,8 +55,8 @@
 				if (people != null) 
 					for(int i = 0; i < people.size(); i++) {
 			%>
-					<a href="'/clique/profile?id=<%=people.get(i).getId()%>">
-						<img class="relation" width="45" height="55" src="/clique/download_picture?id=<%= people.get(i).getId() %>">
+					<a href="/clique/profile?id=<%=people.get(i).getId()%>">
+						<img class="relation" width="45" height="55" src="/clique/download_picture?id=<%= people.get(i).getId() %>"/>
 					</a>
 			<%  
 					}

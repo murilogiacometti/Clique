@@ -89,7 +89,46 @@
 	<url-pattern>/fetchData</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>AddInterestServlet</servlet-name>
+	<servlet-class>clique.controller.AddInterestServlet</servlet-class>
+  </servlet>
 
+  <servlet-mapping>
+    <servlet-name>AddInterestServlet</servlet-name>
+	<url-pattern>/add_interest</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>InterestGraphServlet</servlet-name>
+	<servlet-class>clique.controller.InterestGraphServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>InterestGraphServlet</servlet-name>
+	<url-pattern>/interest_graph</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>InterestPeopleServlet</servlet-name>
+	<servlet-class>clique.controller.InterestPeopleServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>InterestPeopleServlet</servlet-name>
+	<url-pattern>/people_interest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>InterestSearchServlet</servlet-name>
+	<servlet-class>clique.controller.InterestSearchServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>InterestSearchServlet</servlet-name>
+	<url-pattern>/search_interest</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

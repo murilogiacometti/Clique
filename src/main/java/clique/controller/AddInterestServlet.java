@@ -13,7 +13,6 @@ import clique.model.util.*;
 public class AddInterestServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
 			HttpSession session = request.getSession();
 
 			User user = (User) session.getAttribute("user");
@@ -26,16 +25,15 @@ public class AddInterestServlet extends HttpServlet {
 			
 			Session context = HibernateUtil.openContext();
 			
-			for (int i = 0; i < words.length; i++){
+			for (int i = 0; i < words.length; i++) {
+				System.out.println(words[i] + "\n" + relevances[i]);
 				Word word = new Word(words[i],context);
 				word.save(context);
 				user.add(word,new Integer(Integer.parseInt(relevances[i])),context);
 				user.merge(context);
 			}
 
-			HibernateUtil.closeContext(context);			
-			
-
+			HibernateUtil.closeContext(context);
 
 	}
 
