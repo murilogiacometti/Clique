@@ -41,13 +41,23 @@ public class Searcher {
 			Iterator it = words.iterator();
 
 			while (it.hasNext()) {
-				String word = (String) (((Map.Entry) it.next()).getKey());
-				Integer relevance = ((Integer)(Utilities.getWordFrequency(word).get(word))).intValue();
+				String word = (String)it.next(); 
 
+				int r = numberOccurrences(word, tokens);
+				if (r > 100) {
+					r = 10;
+				} else {
+					r = r/10;
+				}
+				Integer relevance = new Integer(r);
+				
+				System.out.println("Primitive is " + Integer.toString(r));
 				keywords.put(word, relevance);
+				System.out.println("Got: "+ ((Integer) keywords.get(word)).intValue());
 			}
 		
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("Could not search URL " + address);
 		
 		}
@@ -76,4 +86,23 @@ public class Searcher {
 
 		return buffer.toString();
 	}
+	
+	public static int numberOccurrences(String findStr, String str)  {
+		
+        int lastIndex = 0;
+        int count = 0;
+
+        while (lastIndex != -1) {
+
+                lastIndex = str.indexOf(findStr, lastIndex);
+
+                if (lastIndex != -1) {
+                        count++;
+                        lastIndex += findStr.length();
+                }
+        }
+
+		return count;
+	}
+
 }

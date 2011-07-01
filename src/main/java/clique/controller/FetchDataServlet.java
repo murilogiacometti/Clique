@@ -11,13 +11,13 @@ import clique.model.core.*;
 public class FetchDataServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String query = request.getParameter("query");
+		String query = request.getParameter("name");
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		File stop_words = new File("/tmp/clique/stop_words");
 
 		if (user == null) {
-			response.sendRedirect("/home");
+			response.sendRedirect("home");
 		} else {
 			try {
 				
@@ -44,11 +44,14 @@ public class FetchDataServlet extends HttpServlet {
 				
 				HashMap keywords = Robot.search(query, 5, stop_words);
 				request.setAttribute("interests", keywords);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("define_interests.jsp");
+
+				dispatcher.forward(request, response);
 				
-				response.sendRedirect("define_interests.jsp");
 			} catch (Exception e) {
+				e.printStackTrace();
 				System.out.println("Robot could not search query " + query);
-				response.sendRedirect("/home");
+				response.sendRedirect("home");
 			}
 
 		}

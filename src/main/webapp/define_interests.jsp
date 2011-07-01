@@ -45,8 +45,8 @@
 			Set keys = interests.keySet();
 			Iterator i = keys.iterator();
 			while(i.hasNext()) {
-				String key = (String) (((Map.Entry) i.next()).getKey());
-				int value = ((Integer) interests.getKey(key)).intValue();
+				String key = (String) i.next(); 
+				int value = ((Integer)interests.get(key)).intValue(); 
 		%>
 			<span class="interest-word" id="score<%= value %>">
 				<%= key %>
